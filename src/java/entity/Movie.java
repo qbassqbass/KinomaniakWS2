@@ -2,8 +2,11 @@ package entity;
 // Generated 2015-10-30 14:40:09 by Hibernate Tools 4.3.1
 
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
@@ -20,6 +23,15 @@ public class Movie  implements java.io.Serializable {
      private String director;
      private Set shows = new HashSet(0);
      private Set casts = new HashSet(0);
+     private ArrayList<Actor> cast = new ArrayList<Actor>();
+
+    public ArrayList<Actor> getCast() {
+        return cast;
+    }
+
+    public void setCast(ArrayList<Actor> cast) {
+        this.cast = cast;
+    }
 
     public Movie() {
     }
@@ -49,7 +61,6 @@ public class Movie  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    @XmlTransient
     public Genre getGenre() {
         return this.genre;
     }
@@ -85,6 +96,7 @@ public class Movie  implements java.io.Serializable {
     public void setDirector(String director) {
         this.director = director;
     }
+    
     public Set getShows() {
         return this.shows;
     }
@@ -98,6 +110,10 @@ public class Movie  implements java.io.Serializable {
     
     public void setCasts(Set casts) {
         this.casts = casts;
+    }
+    
+    public void addActor(Actor a){
+        this.cast.add(a);
     }
 
 

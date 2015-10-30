@@ -8,11 +8,11 @@
             <column name="id" />
             <generator class="identity" />
         </id>
-        <set name="shows" table="show" inverse="true" lazy="true" fetch="select">
+        <!--<set name="shows" table="show" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Room_id" not-null="true" />
             </key>
             <one-to-many class="entity.Show" />
-        </set>
+        </set>-->
     </class>
 </hibernate-mapping>

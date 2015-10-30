@@ -32,7 +32,6 @@ public class Cast  implements java.io.Serializable {
         this.id = id;
     }
     
-    @XmlTransient
     public Actor getActor() {
         return this.actor;
     }
@@ -41,7 +40,6 @@ public class Cast  implements java.io.Serializable {
         this.actor = actor;
     }
     
-    @XmlTransient
     public Movie getMovie() {
         return this.movie;
     }

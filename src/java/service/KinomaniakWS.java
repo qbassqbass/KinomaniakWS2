@@ -54,8 +54,14 @@ public class KinomaniakWS {
     public Movie getMovie(@WebParam(name = "id") final int id) {
         //TODO write your implementation code here:
         List result = executeHQLQuery("From Movie m where m.id = " + id);
-        
-        return (Movie)result.get(0);
+        Movie m = (Movie)result.get(0);
+        List cast = executeHQLQuery("From Cast c where c.movie.id = " + id);
+        if(!cast.isEmpty())
+            for(Object o : cast){
+                Cast c = (Cast)o;
+                m.addActor(c.getActor());
+            }
+        return m;
 //        return null;
     }
 
@@ -65,6 +71,7 @@ public class KinomaniakWS {
     @WebMethod(operationName = "getCast")
     public Cast getCast(@WebParam(name = "movieid") int movieid) {
         //TODO write your implementation code here:
+//        List result = executeHQLQuery("select c.movie.name, c.actor.firstName, c.actor.lastName from Cast c where c.movie.id = " + movieid);
         List result = executeHQLQuery("From Cast c where c.movie.id = " + movieid);
         if(result != null){
             ArrayList<Cast> clist = new ArrayList<Cast>();

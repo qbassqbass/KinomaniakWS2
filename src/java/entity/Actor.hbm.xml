@@ -14,11 +14,11 @@
         <property name="lastName" type="string">
             <column name="last_name" length="45" not-null="true" />
         </property>
-        <set name="casts" table="cast" inverse="true" lazy="true" fetch="select">
+        <!--<set name="casts" table="cast" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Actor_id" not-null="true" />
             </key>
             <one-to-many class="entity.Cast" />
-        </set>
+        </set>-->
     </class>
 </hibernate-mapping>

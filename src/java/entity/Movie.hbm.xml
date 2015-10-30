@@ -23,7 +23,7 @@
         <property name="director" type="string">
             <column name="director" length="45" not-null="true" />
         </property>
-        <set name="shows" table="show" inverse="true" lazy="true" fetch="select">
+        <!--<set name="shows" table="show" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Movie_id" not-null="true" />
             </key>
@@ -34,6 +34,6 @@
                 <column name="Movie_id" not-null="true" />
             </key>
             <one-to-many class="entity.Cast" />
-        </set>
+        </set>-->
     </class>
 </hibernate-mapping>

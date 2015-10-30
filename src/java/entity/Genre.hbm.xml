@@ -11,11 +11,11 @@
         <property name="genre" type="string">
             <column name="genre" length="45" not-null="true" />
         </property>
-        <set name="movies" table="movie" inverse="true" lazy="true" fetch="select">
+        <!--<set name="movies" table="movie" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Genre_id" not-null="true" />
             </key>
             <one-to-many class="entity.Movie" />
-        </set>
+        </set>-->
     </class>
 </hibernate-mapping>

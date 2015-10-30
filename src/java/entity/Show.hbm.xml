@@ -17,11 +17,11 @@
         <property name="time" type="timestamp">
             <column name="time" length="19" not-null="true" />
         </property>
-        <set name="reservations" table="reservation" inverse="true" lazy="true" fetch="select">
+        <!--<set name="reservations" table="reservation" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Show_id" not-null="true" />
             </key>
             <one-to-many class="entity.Reservation" />
-        </set>
+        </set>-->
     </class>
 </hibernate-mapping>
