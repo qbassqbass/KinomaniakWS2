@@ -1,6 +1,9 @@
 package entity;
 // Generated 2015-10-30 14:40:09 by Hibernate Tools 4.3.1
 
+import javax.xml.bind.annotation.XmlTransient;
+
+
 
 
 /**
@@ -28,6 +31,8 @@ public class Cast  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+    
+    @XmlTransient
     public Actor getActor() {
         return this.actor;
     }
@@ -35,6 +40,8 @@ public class Cast  implements java.io.Serializable {
     public void setActor(Actor actor) {
         this.actor = actor;
     }
+    
+    @XmlTransient
     public Movie getMovie() {
         return this.movie;
     }
