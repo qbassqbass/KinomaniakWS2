@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-10-30 14:40:09 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Show" table="show" catalog="kinomaniakws" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="movie" class="entity.Movie" fetch="select">
+            <column name="Movie_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="room" class="entity.Room" fetch="select">
+            <column name="Room_id" not-null="true" />
+        </many-to-one>
+        <property name="time" type="timestamp">
+            <column name="time" length="19" not-null="true" />
+        </property>
+        <set name="reservations" table="reservation" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Show_id" not-null="true" />
+            </key>
+            <one-to-many class="entity.Reservation" />
+        </set>
+    </class>
+</hibernate-mapping>

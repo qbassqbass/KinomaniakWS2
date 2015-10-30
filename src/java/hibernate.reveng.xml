@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="kinomaniakws"/>
+  <table-filter match-name="cast"/>
+  <table-filter match-name="reservation"/>
+  <table-filter match-name="genre"/>
+  <table-filter match-name="show"/>
+  <table-filter match-name="room"/>
+  <table-filter match-name="actor"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="movie"/>
+</hibernate-reverse-engineering>

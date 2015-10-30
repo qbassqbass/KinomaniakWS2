@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-10-30 14:40:09 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Cast" table="cast" catalog="kinomaniakws" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="actor" class="entity.Actor" fetch="select">
+            <column name="Actor_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="movie" class="entity.Movie" fetch="select">
+            <column name="Movie_id" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
