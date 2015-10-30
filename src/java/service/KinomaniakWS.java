@@ -50,6 +50,18 @@ public class KinomaniakWS {
     /**
      * Web service operation
      */
+    
+    @WebMethod(operationName = "getMovieList")
+    public List getMovieList(){
+        List l = new ArrayList<Movie>();
+        List result = executeHQLQuery("from Movie m");
+        if(!result.isEmpty())
+            for(Object o : result){
+                Movie m = (Movie)o;
+                l.add(m);
+            }
+        return l;
+    }
     @WebMethod(operationName = "getMovie")
     public Movie getMovie(@WebParam(name = "id") final int id) {
         //TODO write your implementation code here:
@@ -58,8 +70,8 @@ public class KinomaniakWS {
         List cast = executeHQLQuery("From Cast c where c.movie.id = " + id);
         if(!cast.isEmpty())
             for(Object o : cast){
-                Cast c = (Cast)o;
-                m.addActor(c.getActor());
+                Cast c = (Cast)o; 
+               m.addActor(c.getActor());
             }
         return m;
 //        return null;
@@ -80,6 +92,33 @@ public class KinomaniakWS {
             }
             return clist.get(0);
         }
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getMoviesByGenre")
+    public List getMoviesByGenre(@WebParam(name = "genreid") int genreid) {
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getMoviesByActor")
+    public List getMoviesByActor(@WebParam(name = "actorid") int actorid) {
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getActorList")
+    public List getActorList() {
+        //TODO write your implementation code here:
         return null;
     }
 }
