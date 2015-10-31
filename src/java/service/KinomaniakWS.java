@@ -100,7 +100,15 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "getMoviesByGenre")
     public List getMoviesByGenre(@WebParam(name = "genreid") int genreid) {
-        //TODO write your implementation code here:
+        List result = executeHQLQuery("from Movie m where m.genre.id = " + genreid);
+        if(!result.isEmpty()){
+            List movies = new ArrayList<Movie>();
+            for(Object o : result){
+                Movie m  = (Movie)o;
+                movies.add(m);
+            }
+            return movies;
+        }
         return null;
     }
 
@@ -109,7 +117,15 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "getMoviesByActor")
     public List getMoviesByActor(@WebParam(name = "actorid") int actorid) {
-        //TODO write your implementation code here:
+        List result = executeHQLQuery("from Cast c where c.actor.id = " + actorid);
+        if(!result.isEmpty()){
+            List movies = new ArrayList<Movie>();
+            for(Object o : result){
+                Cast c = (Cast)o;
+                movies.add(c.getMovie());
+            }
+            return movies;
+        }
         return null;
     }
 
@@ -118,6 +134,14 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "getActorList")
     public List getActorList() {
+        List result = executeHQLQuery("From Actor");
+        if(!result.isEmpty()){
+            List actors = new ArrayList<Actor>();
+            for(Object o : result){
+                actors.add((Actor)o);
+            }
+            return actors;
+        }
         //TODO write your implementation code here:
         return null;
     }
