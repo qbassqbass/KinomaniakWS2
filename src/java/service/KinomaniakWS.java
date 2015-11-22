@@ -81,16 +81,21 @@ public class KinomaniakWS {
      * Web service operation
      */
     @WebMethod(operationName = "getCast")
-    public Cast getCast(@WebParam(name = "movieid") int movieid) {
+    public List getCast(@WebParam(name = "movieid") int movieid) {
         //TODO write your implementation code here:
 //        List result = executeHQLQuery("select c.movie.name, c.actor.firstName, c.actor.lastName from Cast c where c.movie.id = " + movieid);
-        List result = executeHQLQuery("From Cast c where c.movie.id = " + movieid);
+        List result = executeHQLQuery("Select c.actor From Cast c where c.movie.id = " + movieid);
         if(result != null){
-            ArrayList<Cast> clist = new ArrayList<Cast>();
+//            ArrayList<Cast> clist = new ArrayList<Cast>();
+//            for(Object o: result){
+//                clist.add((Cast)o);
+//            }
+//            return clist.get(0);
+            ArrayList<Actor> clist = new ArrayList<Actor>();
             for(Object o: result){
-                clist.add((Cast)o);
+                clist.add((Actor)o);
             }
-            return clist.get(0);
+            return clist;
         }
         return null;
     }
@@ -118,15 +123,16 @@ public class KinomaniakWS {
     @WebMethod(operationName = "getMoviesByActor")
     public List getMoviesByActor(@WebParam(name = "actorid") int actorid) {
         List result = executeHQLQuery("from Cast c where c.actor.id = " + actorid);
-        if(!result.isEmpty()){
-            List movies = new ArrayList<Movie>();
+        List movies = new ArrayList<Movie>();
+        if(result != null)
+        if(!result.isEmpty()){            
             for(Object o : result){
                 Cast c = (Cast)o;
                 movies.add(c.getMovie());
             }
-            return movies;
+//            return movies;
         }
-        return null;
+        return movies;
     }
 
     /**
@@ -143,6 +149,97 @@ public class KinomaniakWS {
             return actors;
         }
         //TODO write your implementation code here:
+        return new ArrayList<Actor>();
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getShowList")
+    public List getShowList() {
+        List result = executeHQLQuery("From Show");
+        if(!result.isEmpty()){
+            List shows = new ArrayList<Show>();
+            for (Object o: result){
+                shows.add((Show)o);
+            }
+            return shows;
+        }
         return null;
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getShow")
+    public Show getShow(@WebParam(name = "id") int id) {
+        List result = executeHQLQuery("From Show s Where s.id = " + id);
+        if(!result.isEmpty()){
+            Show s = (Show)result.get(0);
+//            List shows = new ArrayList<Show>();
+//            for(Object o: result){
+//                shows.add((Show)o);
+//            }
+//            return shows.get(0);
+            return s;
+        }
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "listReservations")
+    public List listReservations() {
+        List result = executeHQLQuery("From Reservation");
+        List reservations = new ArrayList<Reservation>();
+        if(result != null)
+            if(!result.isEmpty()){
+                for(Object o: result){
+                    reservations.add((Reservation)o);
+                }
+            }
+        return reservations;
+        //TODO write your implementation code here:
+//        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getReservationById")
+    public Reservation getReservationById(@WebParam(name = "resid") int resid) {
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getReservationsByShow")
+    public List getReservationsByShow(@WebParam(name = "showid") int showid) {
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "bookTicketForShow")
+    public int bookTicketForShow(@WebParam(name = "showid") int showid, @WebParam(name = "userid") int userid, @WebParam(name = "seat") int seat) {
+        //TODO write your implementation code here:
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getReservationsByUser")
+    public List getReservationsByUser(@WebParam(name = "userid") int userid) {
+        //TODO write your implementation code here:
+        return null;
+    }
+    
+    
 }
