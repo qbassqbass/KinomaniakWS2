@@ -27,7 +27,7 @@ public class KinomaniakWS {
     private List executeHQLQuery(String hql) {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
-            session.beginTransaction();
+            session.beginTransaction();            
             Query q = session.createQuery(hql);
             List resultList = q.list();
             if(!resultList.isEmpty())
@@ -37,6 +37,20 @@ public class KinomaniakWS {
             he.printStackTrace();
         }
         return null;
+    }
+    
+    private int trySaveToDB(Object o){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction(); 
+            session.save(o);
+            session.getTransaction().commit();
+        }catch(HibernateException he){
+            he.printStackTrace();
+            session.getTransaction().rollback();
+            return -1;
+        }
+        return 0;
     }
 
     /**
@@ -148,7 +162,6 @@ public class KinomaniakWS {
             }
             return actors;
         }
-        //TODO write your implementation code here:
         return new ArrayList<Actor>();
     }
 
@@ -183,7 +196,6 @@ public class KinomaniakWS {
 //            return shows.get(0);
             return s;
         }
-        //TODO write your implementation code here:
         return null;
     }
 
@@ -201,8 +213,6 @@ public class KinomaniakWS {
                 }
             }
         return reservations;
-        //TODO write your implementation code here:
-//        return null;
     }
 
     /**
@@ -210,7 +220,11 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "getReservationById")
     public Reservation getReservationById(@WebParam(name = "resid") int resid) {
-        //TODO write your implementation code here:
+        List result = executeHQLQuery("From Reservation r Where r.id = " + resid);
+        if(result != null)
+            if(!result.isEmpty()){
+                return (Reservation)result.get(0);
+            }
         return null;
     }
 
@@ -219,8 +233,14 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "getReservationsByShow")
     public List getReservationsByShow(@WebParam(name = "showid") int showid) {
-        //TODO write your implementation code here:
-        return null;
+        List result = executeHQLQuery("From Reservation r Where r.show.id = " + showid);
+        List reservations = new ArrayList<Reservation>();
+        if(result != null)
+            if(!result.isEmpty()){
+                for(Object o: result)
+                    reservations.add((Reservation)o);
+            }
+        return reservations;
     }
 
     /**
@@ -229,7 +249,13 @@ public class KinomaniakWS {
     @WebMethod(operationName = "bookTicketForShow")
     public int bookTicketForShow(@WebParam(name = "showid") int showid, @WebParam(name = "userid") int userid, @WebParam(name = "seat") int seat) {
         //TODO write your implementation code here:
-        return 0;
+        Show sh = new Show();
+        sh.setId(showid);
+        User usr = new User();
+        usr.setId(userid);
+        Reservation res = new Reservation(sh, usr, false, false, seat);
+        return trySaveToDB(res);
+//        return 0;
     }
 
     /**
@@ -237,8 +263,54 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "getReservationsByUser")
     public List getReservationsByUser(@WebParam(name = "userid") int userid) {
-        //TODO write your implementation code here:
-        return null;
+        List result = executeHQLQuery("From Reservation r Where r.user.id = " + userid);
+        List reservations = new ArrayList<Reservation>();
+        if(result != null)
+            if(!result.isEmpty()){
+                for(Object o: result)
+                    reservations.add((Reservation)o);
+            }
+        return reservations;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getOccupiedSeatsForShow")
+    public List getOccupiedSeatsForShow(@WebParam(name = "showid") int showid) {
+        List result = executeHQLQuery("Select r.seat From Reservation r Where r.show.id = " + showid);
+        List seats = new ArrayList<Integer>();
+        if(result != null)
+            if(!result.isEmpty()){
+                for(Object o: result){
+//                    Reservation r = (Reservation)o;
+                    seats.add((Integer)o);
+                }
+            }
+        return seats;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "bookTicketForShowObj")
+    public int bookTicketForShowObj(@WebParam(name = "show") Show show, @WebParam(name = "user") User user, @WebParam(name = "seat") int seat) {
+        return bookTicketForShow(show.getId(), user.getId(), seat);
+//        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "userLogin")
+    public int userLogin(@WebParam(name = "username") String username, @WebParam(name = "password") String password) {
+        List result = executeHQLQuery("From User u Where u.name = '" + username + "' AND u.password = '" + password + "'");
+        if(result != null)
+            if(!result.isEmpty()){
+                User u = (User) result.get(0);
+                return u.getId();
+            }
+        return -1;
     }
     
     
