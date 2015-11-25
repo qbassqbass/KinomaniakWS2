@@ -354,6 +354,42 @@ public class KinomaniakWS {
         //TODO write your implementation code here:
 //        return 0;
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "movieSuggestionsByGenre")
+    public List movieSuggestionsByGenre(@WebParam(name = "genreid") int genreid) {
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "movieSuggestionsByCast")
+    public List movieSuggestionsByCast(@WebParam(name = "actorid") int actorid) {
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "movieSuggestionsByCastList")
+    public List movieSuggestionsByCastList(@WebParam(name = "cast") java.util.List<Actor> cast) {
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "movieSuggestionsByUser")
+    public List movieSuggestionsByUser(@WebParam(name = "userid") int userid) {
+        //TODO write your implementation code here:
+        return null;
+    }
     
     
 }
