@@ -7,6 +7,7 @@ package service;
 
 //import entity.Movie;
 import entity.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import utils.HibernateUtil;
 import java.util.List;
@@ -48,9 +49,37 @@ public class KinomaniakWS {
         }catch(HibernateException he){
             he.printStackTrace();
             session.getTransaction().rollback();
+            session.close();
             return -1;
         }
+        session.close();
         return 0;
+    }
+    
+    private int trySaveUpdateToDB(Object o){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction(); 
+            session.saveOrUpdate(o);
+            session.getTransaction().commit();
+        }catch(HibernateException he){
+            he.printStackTrace();
+            session.getTransaction().rollback();
+            session.close();
+            return -1;
+        }
+        session.close();
+        return 0;
+    }   
+    
+    
+    private Object getFromDB(Class cl, Serializable ser){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Object o = session.get(cl, ser);
+        session.close();
+//        try{
+        return o;
+//        }
     }
 
     /**
@@ -295,7 +324,8 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "bookTicketForShowObj")
     public int bookTicketForShowObj(@WebParam(name = "show") Show show, @WebParam(name = "user") User user, @WebParam(name = "seat") int seat) {
-        return bookTicketForShow(show.getId(), user.getId(), seat);
+//        return bookTicketForShow(show.getId(), user.getId(), seat);
+        return trySaveToDB(new Reservation(show, user, false, false, seat));
 //        return 0;
     }
 
@@ -311,6 +341,18 @@ public class KinomaniakWS {
                 return u.getId();
             }
         return -1;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "confirmReservation")
+    public int confirmReservation(@WebParam(name = "resid") int resid) {
+        Reservation res = (Reservation) getFromDB(Reservation.class, resid);
+        res.setChecked(true);
+        return trySaveUpdateToDB(res);
+        //TODO write your implementation code here:
+//        return 0;
     }
     
     
