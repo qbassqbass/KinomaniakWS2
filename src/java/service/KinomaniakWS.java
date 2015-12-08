@@ -19,7 +19,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 /**
- *
+ * Główna klasa usługi sieciowej
  * @author Jakub
  */
 @WebService(serviceName = "KinomaniakWS")
@@ -83,15 +83,9 @@ public class KinomaniakWS {
     }
 
     /**
-     * This is a sample web service operation
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
-    }
-
-    /**
-     * Web service operation
+     * Zwraca listę wszystkich filmów w bazie
+     * @return Lista filmów w bazie jako ArrayList of Movie
+     * @see Movie
      */
     
     @WebMethod(operationName = "getMovieList")
@@ -105,6 +99,13 @@ public class KinomaniakWS {
             }
         return l;
     }
+
+    /**
+     * Zwraca film (obiekt Movie) na podstawie konkretnego identyfikatora
+     * @param id identyfikator filmu
+     * @return obiekt Movie (film)
+     * @see Movie
+     */
     @WebMethod(operationName = "getMovie")
     public Movie getMovie(@WebParam(name = "id") final int id) {
         //TODO write your implementation code here:
@@ -121,7 +122,10 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Zwraca listę aktorów w danym filmie na podstawie id filmu
+     * @param movieid id filmu
+     * @return lista aktorów (obiektów Actor) 
+     * @see Actor
      */
     @WebMethod(operationName = "getCast")
     public List getCast(@WebParam(name = "movieid") int movieid) {
@@ -144,7 +148,11 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Metoda zwraca listę filmów (obiekt Movie) na podstawie identyfikatora rodzaju filmu (Genre)
+     * @param genreid id rodzaju
+     * @return lista filmów
+     * @see Genre
+     * @see Movie
      */
     @WebMethod(operationName = "getMoviesByGenre")
     public List getMoviesByGenre(@WebParam(name = "genreid") int genreid) {
@@ -161,7 +169,11 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Zwraca listę filmów na podstawie id aktora
+     * @param actorid id aktora
+     * @return lista filmów
+     * @see Movie
+     * @see Actor
      */
     @WebMethod(operationName = "getMoviesByActor")
     public List getMoviesByActor(@WebParam(name = "actorid") int actorid) {
@@ -179,7 +191,9 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Zwraca listę wszystkich aktorów
+     * @return lista aktorów w bazie jako ArrayList
+     * @see Actor
      */
     @WebMethod(operationName = "getActorList")
     public List getActorList() {
@@ -195,7 +209,9 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Zwraca listę wszystkich seansów zapisanych w bazie
+     * @return lista seansów (jako ArrayList)
+     * @see Show
      */
     @WebMethod(operationName = "getShowList")
     public List getShowList() {
@@ -211,7 +227,10 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Zwraca konkretny seans podstawie podanego identyfikator
+     * @param id id seansu
+     * @return obiekt Show konkretnego seansu
+     * @see Show
      */
     @WebMethod(operationName = "getShow")
     public Show getShow(@WebParam(name = "id") int id) {
@@ -229,7 +248,9 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Zwraca listę wszystkich rezerwacji
+     * @return lista rezerwacji (jako Arraylist)
+     * @see Reservation
      */
     @WebMethod(operationName = "listReservations")
     public List listReservations() {
@@ -245,7 +266,10 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Zwraca konkretną rezerwację na podstawie jego id
+     * @param resid id rezerwacji
+     * @return obiekt Reservation
+     * @see Reservation
      */
     @WebMethod(operationName = "getReservationById")
     public Reservation getReservationById(@WebParam(name = "resid") int resid) {
@@ -258,7 +282,11 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Zwraca listę rezerwacji na podany seans na podstawie id seansu
+     * @param showid id seansu
+     * @return lista rezerwacji jako ArrayList of Reservation
+     * @see Reservation
+     * @see Show
      */
     @WebMethod(operationName = "getReservationsByShow")
     public List getReservationsByShow(@WebParam(name = "showid") int showid) {
@@ -273,7 +301,14 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Metoda rezerwująca bilet na dany seans
+     * @param showid id seansu
+     * @param seat id miejsca w sali 
+     * @param userid id użytkownika rezerwującego
+     * @return 0 jeśli jest OK
+     * @see Show
+     * @see Room
+     * @see User
      */
     @WebMethod(operationName = "bookTicketForShow")
     public int bookTicketForShow(@WebParam(name = "showid") int showid, @WebParam(name = "userid") int userid, @WebParam(name = "seat") int seat) {
@@ -288,7 +323,11 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Pobranie rezerwacji danego użytkownika
+     * @param userid id użytkownika
+     * @return lista rezerwacji jako ArrayList of Reservation
+     * @see User
+     * @see Reservation
      */
     @WebMethod(operationName = "getReservationsByUser")
     public List getReservationsByUser(@WebParam(name = "userid") int userid) {
@@ -303,7 +342,10 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Zwraca identyfikatory zajętych miejsc na danym seansie
+     * @param showid id seansu
+     * @return lista zajętych miejsc jako ArrayList of Integer
+     * @see Show
      */
     @WebMethod(operationName = "getOccupiedSeatsForShow")
     public List getOccupiedSeatsForShow(@WebParam(name = "showid") int showid) {
@@ -320,7 +362,13 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Rezerwacja miejsca na dany seans (wykorzystująca obiekty zamiast identyfikatorów)
+     * @param show obiekt typu Show seansu, na który chcemy rezerwować miejsce
+     * @param user obiekt typu User użytkownika, który rezerwuje miejsce
+     * @param seat id miejsca, które rezerwuje użytkownik
+     * @return 0 jeśli OK
+     * @see Show
+     * @see User
      */
     @WebMethod(operationName = "bookTicketForShowObj")
     public int bookTicketForShowObj(@WebParam(name = "show") Show show, @WebParam(name = "user") User user, @WebParam(name = "seat") int seat) {
@@ -330,7 +378,11 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * sprawdzenie logowania użytkownika
+     * @param username nazwa użytkownika
+     * @param password hasło (w formie czystej)
+     * @return id użytkownika jeśli para użytkownik/hasło jest poprawna, -1 jeśli nie ma takiego użytkownika lub błędne hasło
+     * @see User
      */
     @WebMethod(operationName = "userLogin")
     public int userLogin(@WebParam(name = "username") String username, @WebParam(name = "password") String password) {
@@ -344,7 +396,10 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Metoda do potwierdzania rezerwacji
+     * @param resid id rezerwacji
+     * @return 0 jeśli ok
+     * @see Reservation
      */
     @WebMethod(operationName = "confirmReservation")
     public int confirmReservation(@WebParam(name = "resid") int resid) {
@@ -356,7 +411,11 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Zwraca listę sugerowanych filmów na podstawie id rodzaju filmu
+     * @param genreid id rodzaju filmu
+     * @return lista filmów jako ArrayList of Movie
+     * @see Movie
+     * @see Genre
      */
     @WebMethod(operationName = "movieSuggestionsByGenre")
     public List movieSuggestionsByGenre(@WebParam(name = "genreid") int genreid) {
@@ -365,7 +424,11 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Zwraca listę sugerowanych filmów na podstawie id aktora
+     * @param actorid id aktora
+     * @return lista filmów jako ArrayList of Movie
+     * @see Movie
+     * @see Actor
      */
     @WebMethod(operationName = "movieSuggestionsByCast")
     public List movieSuggestionsByCast(@WebParam(name = "actorid") int actorid) {
@@ -374,7 +437,12 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Zwraca listę sugerowanych filmów na podstawie listy aktorów
+     * @param cast lista aktorów (List of Actor)
+     * @return lista filmów jako ArrayList of Movie
+     * @see Movie
+     * @see Actor
+     * @see Cast
      */
     @WebMethod(operationName = "movieSuggestionsByCastList")
     public List movieSuggestionsByCastList(@WebParam(name = "cast") java.util.List<Actor> cast) {
@@ -383,7 +451,11 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Zwraca listę sugerowanych filmów na podstawie id użytkownika
+     * @param userid id użytkownika
+     * @return lista filmów jako Arraylist of Movie
+     * @see Movie
+     * @see User
      */
     @WebMethod(operationName = "movieSuggestionsByUser")
     public List movieSuggestionsByUser(@WebParam(name = "userid") int userid) {
