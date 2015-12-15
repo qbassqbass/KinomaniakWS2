@@ -1,0 +1,404 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://service/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://service/">
+
+<xs:element name="bookTicketForShow" type="tns:bookTicketForShow"/>
+
+<xs:element name="bookTicketForShowObj" type="tns:bookTicketForShowObj"/>
+
+<xs:element name="bookTicketForShowObjResponse" type="tns:bookTicketForShowObjResponse"/>
+
+<xs:element name="bookTicketForShowResponse" type="tns:bookTicketForShowResponse"/>
+
+<xs:element name="confirmReservation" type="tns:confirmReservation"/>
+
+<xs:element name="confirmReservationResponse" type="tns:confirmReservationResponse"/>
+
+<xs:element name="getActorList" type="tns:getActorList"/>
+
+<xs:element name="getActorListResponse" type="tns:getActorListResponse"/>
+
+<xs:element name="getCast" type="tns:getCast"/>
+
+<xs:element name="getCastResponse" type="tns:getCastResponse"/>
+
+<xs:element name="getMovie" type="tns:getMovie"/>
+
+<xs:element name="getMovieList" type="tns:getMovieList"/>
+
+<xs:element name="getMovieListResponse" type="tns:getMovieListResponse"/>
+
+<xs:element name="getMovieResponse" type="tns:getMovieResponse"/>
+
+<xs:element name="getMoviesByActor" type="tns:getMoviesByActor"/>
+
+<xs:element name="getMoviesByActorResponse" type="tns:getMoviesByActorResponse"/>
+
+<xs:element name="getMoviesByGenre" type="tns:getMoviesByGenre"/>
+
+<xs:element name="getMoviesByGenreResponse" type="tns:getMoviesByGenreResponse"/>
+
+<xs:element name="getOccupiedSeatsForShow" type="tns:getOccupiedSeatsForShow"/>
+
+<xs:element name="getOccupiedSeatsForShowResponse" type="tns:getOccupiedSeatsForShowResponse"/>
+
+<xs:element name="getReservationById" type="tns:getReservationById"/>
+
+<xs:element name="getReservationByIdResponse" type="tns:getReservationByIdResponse"/>
+
+<xs:element name="getReservationsByShow" type="tns:getReservationsByShow"/>
+
+<xs:element name="getReservationsByShowResponse" type="tns:getReservationsByShowResponse"/>
+
+<xs:element name="getReservationsByUser" type="tns:getReservationsByUser"/>
+
+<xs:element name="getReservationsByUserResponse" type="tns:getReservationsByUserResponse"/>
+
+<xs:element name="getShow" type="tns:getShow"/>
+
+<xs:element name="getShowList" type="tns:getShowList"/>
+
+<xs:element name="getShowListResponse" type="tns:getShowListResponse"/>
+
+<xs:element name="getShowResponse" type="tns:getShowResponse"/>
+
+<xs:element name="listReservations" type="tns:listReservations"/>
+
+<xs:element name="listReservationsResponse" type="tns:listReservationsResponse"/>
+
+<xs:element name="movieSuggestionsByCast" type="tns:movieSuggestionsByCast"/>
+
+<xs:element name="movieSuggestionsByCastList" type="tns:movieSuggestionsByCastList"/>
+
+<xs:element name="movieSuggestionsByCastListResponse" type="tns:movieSuggestionsByCastListResponse"/>
+
+<xs:element name="movieSuggestionsByCastResponse" type="tns:movieSuggestionsByCastResponse"/>
+
+<xs:element name="movieSuggestionsByGenre" type="tns:movieSuggestionsByGenre"/>
+
+<xs:element name="movieSuggestionsByGenreResponse" type="tns:movieSuggestionsByGenreResponse"/>
+
+<xs:element name="movieSuggestionsByUser" type="tns:movieSuggestionsByUser"/>
+
+<xs:element name="movieSuggestionsByUserResponse" type="tns:movieSuggestionsByUserResponse"/>
+
+<xs:element name="userLogin" type="tns:userLogin"/>
+
+<xs:element name="userLoginResponse" type="tns:userLoginResponse"/>
+
+<xs:complexType name="bookTicketForShowObj">
+<xs:sequence>
+<xs:element name="show" type="tns:show" minOccurs="0"/>
+<xs:element name="user" type="tns:user" minOccurs="0"/>
+<xs:element name="seat" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="show">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="movie" type="tns:movie" minOccurs="0"/>
+<xs:element name="reservations" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="room" type="tns:room" minOccurs="0"/>
+<xs:element name="time" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="movie">
+<xs:sequence>
+<xs:element name="cast" type="tns:actor" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="casts" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="description" type="xs:string" minOccurs="0"/>
+<xs:element name="director" type="xs:string" minOccurs="0"/>
+<xs:element name="genre" type="tns:genre" minOccurs="0"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="rating" type="xs:int"/>
+<xs:element name="shows" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actor">
+<xs:sequence>
+<xs:element name="casts" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="lastName" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="genre">
+<xs:sequence>
+<xs:element name="genre" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="movies" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="room">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="shows" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="user">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="reservations" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="type" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bookTicketForShowObjResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getOccupiedSeatsForShow">
+<xs:sequence>
+<xs:element name="showid" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getOccupiedSeatsForShowResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getReservationsByUser">
+<xs:sequence>
+<xs:element name="userid" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getReservationsByUserResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMovieList">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getMovieListResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getActorList">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getActorListResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMovie">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMovieResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:movie" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCast">
+<xs:sequence>
+<xs:element name="movieid" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCastResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listReservations">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listReservationsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getReservationsByShow">
+<xs:sequence>
+<xs:element name="showid" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getReservationsByShowResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bookTicketForShow">
+<xs:sequence>
+<xs:element name="showid" type="xs:int"/>
+<xs:element name="userid" type="xs:int"/>
+<xs:element name="seat" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bookTicketForShowResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMoviesByActor">
+<xs:sequence>
+<xs:element name="actorid" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMoviesByActorResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMoviesByGenre">
+<xs:sequence>
+<xs:element name="genreid" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMoviesByGenreResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="movieSuggestionsByCast">
+<xs:sequence>
+<xs:element name="actorid" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="movieSuggestionsByCastResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="movieSuggestionsByUser">
+<xs:sequence>
+<xs:element name="userid" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="movieSuggestionsByUserResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getShow">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getShowResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:show" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="movieSuggestionsByGenre">
+<xs:sequence>
+<xs:element name="genreid" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="movieSuggestionsByGenreResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getShowList">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getShowListResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="confirmReservation">
+<xs:sequence>
+<xs:element name="resid" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="confirmReservationResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="movieSuggestionsByCastList">
+<xs:sequence>
+<xs:element name="cast" type="tns:actor" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="movieSuggestionsByCastListResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getReservationById">
+<xs:sequence>
+<xs:element name="resid" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getReservationByIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:reservation" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservation">
+<xs:sequence>
+<xs:element name="checked" type="xs:boolean"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="ok" type="xs:boolean"/>
+<xs:element name="seat" type="xs:int"/>
+<xs:element name="show" type="tns:show" minOccurs="0"/>
+<xs:element name="user" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="userLogin">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="userLoginResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
