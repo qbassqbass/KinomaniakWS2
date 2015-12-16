@@ -70,6 +70,10 @@ public class Reservation  implements java.io.Serializable {
         this.seat = seat;
     }
 
+    @Override
+    public String toString(){
+        return this.getId()+". Show: "+this.getShow().toString()+"\nSeat: "+this.getSeat()+" by user "+this.getUser().getName()+"("+this.getUser().getEmail()+")";
+    }
 
 
 

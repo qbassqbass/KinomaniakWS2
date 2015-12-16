@@ -116,6 +116,10 @@ public class Movie  implements java.io.Serializable {
         this.cast.add(a);
     }
 
+    @Override
+    public String toString(){
+        return this.getId()+". "+this.getName()+"\nDirector: "+this.getDirector()+"\nGenre: "+this.getGenre().getGenre()+"\nDescription: "+this.getDescription();
+    }
 
 
 

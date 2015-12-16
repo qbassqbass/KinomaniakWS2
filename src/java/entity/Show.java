@@ -69,7 +69,11 @@ public class Show  implements java.io.Serializable {
     public void setReservations(Set reservations) {
         this.reservations = reservations;
     }
-
+    @Override
+    public String toString(){
+        String str = this.getId() +". "+ this.getMovie().getName() +" in Room #"+this.getRoom().getId()+" at "+this.getTime();
+        return str;
+    }
 
 
 

@@ -59,6 +59,10 @@ public class Actor  implements java.io.Serializable {
         this.casts = casts;
     }
 
+    @Override
+    public String toString(){
+        return this.getId()+". "+this.getFirstName()+" "+this.getLastName();
+    }
 
 
 
