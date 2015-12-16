@@ -9,6 +9,7 @@ package service;
 import entity.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import utils.HibernateUtil;
 import java.util.List;
 import javax.jws.WebService;
@@ -461,6 +462,60 @@ public class KinomaniakWS {
     public List movieSuggestionsByUser(@WebParam(name = "userid") int userid) {
         //TODO write your implementation code here:
         return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminAddUser")
+    public int adminAddUser(@WebParam(name = "username") String username, @WebParam(name = "password") String password, @WebParam(name = "email") String email, @WebParam(name = "elevation") int elevation) {
+        //TODO write your implementation code here:
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminAddShow")
+    public int adminAddShow(@WebParam(name = "movie") Movie movie, @WebParam(name = "room") Room room, @WebParam(name = "time") Date time) {
+        //TODO write your implementation code here:
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminAddMovie")
+    public int adminAddMovie(@WebParam(name = "name") String name, @WebParam(name = "description") String description, @WebParam(name = "director") String director, @WebParam(name = "rating") int rating, @WebParam(name = "genre") Genre genre) {
+        //TODO write your implementation code here:
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminAddActor")
+    public int adminAddActor(@WebParam(name = "firstName") String firstName, @WebParam(name = "lastName") String lastName) {
+        //TODO write your implementation code here:
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminAddGenre")
+    public int adminAddGenre(@WebParam(name = "genre") String genre) {
+        //TODO write your implementation code here:
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminAddCast")
+    public int adminAddCast(@WebParam(name = "actor") Actor actor, @WebParam(name = "movie") Movie movie) {
+        //TODO write your implementation code here:
+        return 0;
     }
     
     
