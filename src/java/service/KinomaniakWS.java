@@ -18,6 +18,7 @@ import javax.jws.WebParam;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import utils.HashUtil;
 
 /**
  * Główna klasa usługi sieciowej
@@ -387,6 +388,7 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "userLogin")
     public int userLogin(@WebParam(name = "username") String username, @WebParam(name = "password") String password) {
+        HashUtil.toSHA1(password.getBytes());
         List result = executeHQLQuery("From User u Where u.name = '" + username + "' AND u.password = '" + password + "'");
         if(result != null)
             if(!result.isEmpty()){
@@ -469,8 +471,13 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "adminAddUser")
     public int adminAddUser(@WebParam(name = "username") String username, @WebParam(name = "password") String password, @WebParam(name = "email") String email, @WebParam(name = "elevation") int elevation) {
-        //TODO write your implementation code here:
-        return 0;
+        User u = new User();
+        u.setName(username);
+        u.setPassword(HashUtil.toSHA1(password.getBytes()));
+        u.setEmail(email);
+        u.setType(elevation);
+        int res = trySaveToDB(u);
+        return res;
     }
 
     /**
@@ -478,8 +485,12 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "adminAddShow")
     public int adminAddShow(@WebParam(name = "movie") Movie movie, @WebParam(name = "room") Room room, @WebParam(name = "time") Date time) {
-        //TODO write your implementation code here:
-        return 0;
+        Show s = new Show();
+        s.setMovie(movie);
+        s.setRoom(room);
+        s.setTime(time);
+        int res = trySaveToDB(s);
+        return res;
     }
 
     /**
@@ -487,8 +498,14 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "adminAddMovie")
     public int adminAddMovie(@WebParam(name = "name") String name, @WebParam(name = "description") String description, @WebParam(name = "director") String director, @WebParam(name = "rating") int rating, @WebParam(name = "genre") Genre genre) {
-        //TODO write your implementation code here:
-        return 0;
+        Movie m = new Movie();
+        m.setDescription(description);
+        m.setDirector(director);
+        m.setGenre(genre);
+        m.setName(name);
+        m.setRating(rating);
+        int res = trySaveToDB(m);
+        return res;
     }
 
     /**
@@ -496,8 +513,12 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "adminAddActor")
     public int adminAddActor(@WebParam(name = "firstName") String firstName, @WebParam(name = "lastName") String lastName) {
-        //TODO write your implementation code here:
-        return 0;
+        Actor a = new Actor();
+        a.setFirstName(firstName);
+        a.setLastName(lastName);
+        
+        int res = trySaveToDB(a);
+        return res;
     }
 
     /**
@@ -505,8 +526,11 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "adminAddGenre")
     public int adminAddGenre(@WebParam(name = "genre") String genre) {
-        //TODO write your implementation code here:
-        return 0;
+        Genre g = new Genre();
+        g.setGenre(genre);
+        
+        int res = trySaveToDB(g);
+        return res;
     }
 
     /**
@@ -514,8 +538,12 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "adminAddCast")
     public int adminAddCast(@WebParam(name = "actor") Actor actor, @WebParam(name = "movie") Movie movie) {
-        //TODO write your implementation code here:
-        return 0;
+        Cast c = new Cast();
+        c.setActor(actor);
+        c.setMovie(movie);
+        
+        int res = trySaveToDB(c);
+        return res;
     }
     
     
