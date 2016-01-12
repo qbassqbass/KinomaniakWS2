@@ -438,7 +438,15 @@ public class KinomaniakWS {
     @WebMethod(operationName = "movieSuggestionsByGenre")
     public List movieSuggestionsByGenre(@WebParam(name = "genreid") int genreid) {
         //TODO write your implementation code here:
-        return null;
+        List result = executeHQLQuery("From Movie m Where m.genre.id = '" + genreid + "'");
+        List movies = new ArrayList<Movie>();
+        if(result != null)
+            if(!result.isEmpty()){
+                for(Object o : result){
+                    movies.add((Movie)o);
+                }
+            }
+        return movies;
     }
 
     /**
@@ -451,7 +459,27 @@ public class KinomaniakWS {
     @WebMethod(operationName = "movieSuggestionsByCast")
     public List movieSuggestionsByCast(@WebParam(name = "actorid") int actorid) {
         //TODO write your implementation code here:
-        return null;
+        List cResult = executeHQLQuery("Select c.movie.id From Cast c Where c.actor.id = '" + actorid + "'");
+//        List movIds = new ArrayList<Integer>();
+        List movies = new ArrayList<Movie>();
+        String preparedWhereQuery = "";
+        if(cResult != null){
+            if(!cResult.isEmpty()){
+                for(Object o : cResult){
+//                    movIds.add((int)o);
+                    preparedWhereQuery += "m.id = '"+(int)o+"' OR ";
+                }
+                preparedWhereQuery = preparedWhereQuery.substring(0, preparedWhereQuery.length()-4);
+            }
+        }else return movies;
+        List result = executeHQLQuery("From Movie m Where " + preparedWhereQuery);
+        if(result != null)
+            if(!result.isEmpty()){
+                for(Object o : result){
+                    movies.add((Movie)o);
+                }
+            }
+        return movies;
     }
 
     /**
@@ -475,11 +503,11 @@ public class KinomaniakWS {
      * @see Movie
      * @see User
      */
-    @WebMethod(operationName = "movieSuggestionsByUser")
+    /*@WebMethod(operationName = "movieSuggestionsByUser")
     public List movieSuggestionsByUser(@WebParam(name = "userid") int userid) {
         //TODO write your implementation code here:
         return null;
-    }
+    }*/
 // <editor-fold defaultstate="collapsed" desc="Admin methods">
     /**
      * Metoda administracyjna - dodanie użytkownika
