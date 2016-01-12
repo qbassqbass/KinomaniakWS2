@@ -10,11 +10,14 @@ import entity.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import utils.HibernateUtil;
 import java.util.List;
+import java.util.Set;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -481,7 +484,51 @@ public class KinomaniakWS {
             }
         return movies;
     }
-
+    /**
+     * Zwraca listę sugerowanych filmów na podstawie wybranego filmu
+     * @param movie film wybrany przez użytkownika
+     * @return lista filmów jako ArrayList of Movie
+     */
+    @WebMethod(operationName = "movieSuggestionsByMovie")
+    public List movieSuggestionsByMovie(@WebParam(name = "movie") Movie movie){
+        List movies = new ArrayList<Movie>();
+        movies.add(movieSuggestionsByGenre(movie.getGenre().getId()));
+        List cast = getCast(movie.getId());
+        for(Object o: cast){
+            Actor a = (Actor)o;
+            movies.add(movieSuggestionsByCast(a.getId()));
+        }
+        Set<Movie> movieSet = new HashSet<>();
+        movieSet.addAll(movies);
+        movies.clear();
+        movies.add(movieSet);
+        return movies;
+    }
+    
+//    @WebMethod(operationName = "movieSuggestionsByMovieId")
+//    public List movieSuggestionsByMovieId(@WebParam(name = "movie") int movieid){
+//        List movies = new ArrayList<Movie>();
+//        List result = executeHQLQuery("From Movie m Where m.id = '" + movieid + "'");
+//        Movie movie = null;
+//        if(result!=null){
+//            if(!result.isEmpty()){
+//                movie = (Movie)result.get(0);
+//            }
+//        }
+//        movies.add(movieSuggestionsByGenre(movie.getGenre().getId()));
+//        List cast = getCast(movie.getId());
+//        for(Object o: cast){
+//            Actor a = (Actor)o;
+//            movies.add(movieSuggestionsByCast(a.getId()));
+//        }
+////        Set<Movie> movieSet = new HashSet<>();
+////        movieSet.addAll(movies);
+////        movies.clear();
+////        movies.add(movieSet);
+//        List<Movie> deduped = (List<Movie>) movies.stream().distinct().collect(java.util.stream.Collectors.toList());
+//        return movies;
+//    }
+    
     /**
      * Zwraca listę sugerowanych filmów na podstawie listy aktorów
      * @param cast lista aktorów (List of Actor)
@@ -624,5 +671,35 @@ public class KinomaniakWS {
         return res;
     }
  // </editor-fold>  
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "movieSuggestionsByMovieId2")
+    public List movieSuggestionsByMovieId2(@WebParam(name = "movieid") int movieid) {
+        List movies = new ArrayList<Movie>();
+        List result = executeHQLQuery("From Movie m Where m.id = '" + movieid + "'");
+        Movie movie = null;
+        if(result!=null){
+            if(!result.isEmpty()){
+                movie = (Movie)result.get(0);
+            }
+        }
+        if(movie == null) return movies;
+        movies.add(movieSuggestionsByGenre(movie.getGenre().getId()));
+        List cast = getCast(movie.getId());
+        for(Object o: cast){
+            Actor a = (Actor)o;
+            movies.add(movieSuggestionsByCast(a.getId()));
+        }
+//        Set<Movie> movieSet = new HashSet<>();
+//        movieSet.addAll(movies);
+//        movies.clear();
+//        movies.add(movieSet);
+        List<Movie> deduped = (List<Movie>) movies.stream().distinct().collect(java.util.stream.Collectors.toList());
+        return deduped;
+    }
+
+    
     
 }
