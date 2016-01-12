@@ -397,6 +397,22 @@ public class KinomaniakWS {
             }
         return -1;
     }
+    /**
+     * sprawdzenie logowania użytkownika wykorzystując zahashowane już hasło - bezpieczniejesze
+     * @param username
+     * @param hashPass
+     * @return 
+     */
+    @WebMethod(operationName = "userLoginHashed")
+    public int userLoginHashed(@WebParam(name = "username") String username, @WebParam(name = "hashPass") String hashPass){
+        List result = executeHQLQuery("From User u Where u.name = '" + username + "'AND u.password = '" + hashPass +"'");
+        if(result != null)
+            if(!result.isEmpty()){
+                User u = (User) result.get(0);
+                return u.getId();
+            }
+        return -1;
+    }
 
     /**
      * Metoda do potwierdzania rezerwacji
@@ -409,7 +425,6 @@ public class KinomaniakWS {
         Reservation res = (Reservation) getFromDB(Reservation.class, resid);
         res.setChecked(true);
         return trySaveUpdateToDB(res);
-        //TODO write your implementation code here:
 //        return 0;
     }
 
@@ -465,9 +480,15 @@ public class KinomaniakWS {
         //TODO write your implementation code here:
         return null;
     }
-
+// <editor-fold defaultstate="collapsed" desc="Admin methods">
     /**
-     * Web service operation
+     * Metoda administracyjna - dodanie użytkownika
+     * @param username nazwa użytkownika
+     * @param password hasło użytkownika(czyste)
+     * @param email adres email użytkownika
+     * @param elevation uprawnienia użytkownika
+     * @return 0 jeśli się powiedzie -1 jeśli nie
+     * @see User
      */
     @WebMethod(operationName = "adminAddUser")
     public int adminAddUser(@WebParam(name = "username") String username, @WebParam(name = "password") String password, @WebParam(name = "email") String email, @WebParam(name = "elevation") int elevation) {
@@ -481,7 +502,15 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Metoda administracyjna - dodanie seansu
+     * @param movie film na danym seansie
+     * @param room sala kinowa
+     * @param time czas seasnu
+     * @return 0 jeśli się powiedzie, -1 jeśli nie
+     * @see Movie
+     * @see Room
+     * @see Date
+     * @see Show
      */
     @WebMethod(operationName = "adminAddShow")
     public int adminAddShow(@WebParam(name = "movie") Movie movie, @WebParam(name = "room") Room room, @WebParam(name = "time") Date time) {
@@ -494,7 +523,14 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Metoda administracyjna - dodanie filmu
+     * @param name tytuł filmu
+     * @param description opis filmu
+     * @param director reżyser
+     * @param rating ograniczenia wiekowe
+     * @param genre rodzaj filmu
+     * @return 0 jeśli się powiedzie, -1 jeśli nie
+     * @see Movie
      */
     @WebMethod(operationName = "adminAddMovie")
     public int adminAddMovie(@WebParam(name = "name") String name, @WebParam(name = "description") String description, @WebParam(name = "director") String director, @WebParam(name = "rating") int rating, @WebParam(name = "genre") Genre genre) {
@@ -509,7 +545,11 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Metoda administracyjna - dodanie aktora
+     * @param firstName imię aktora
+     * @param lastName nazwisko aktora
+     * @return 0 jeśli się powiedzie, -1 jeśli nie
+     * @see Actor
      */
     @WebMethod(operationName = "adminAddActor")
     public int adminAddActor(@WebParam(name = "firstName") String firstName, @WebParam(name = "lastName") String lastName) {
@@ -522,7 +562,11 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Metoda administracyjna - dodanie rodzaju filmu
+     * @param genre rodzaj filmu
+     * @return 0 jeśli się powiedzie, -1 jeśli nie
+     * @see Genre
+     * @see Movie
      */
     @WebMethod(operationName = "adminAddGenre")
     public int adminAddGenre(@WebParam(name = "genre") String genre) {
@@ -534,7 +578,13 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Metoda administracyjna - dodanie aktora do obsady filmu
+     * @param actor aktor do dodania
+     * @param movie film do zaktualizowania obsady
+     * @return 0 jeśli się powiedzie, -1 jeśli nie
+     * @see Cast
+     * @see Movie
+     * @see Actor
      */
     @WebMethod(operationName = "adminAddCast")
     public int adminAddCast(@WebParam(name = "actor") Actor actor, @WebParam(name = "movie") Movie movie) {
@@ -545,6 +595,6 @@ public class KinomaniakWS {
         int res = trySaveToDB(c);
         return res;
     }
-    
+ // </editor-fold>  
     
 }
