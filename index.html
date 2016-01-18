@@ -55,722 +55,908 @@
 </p>		
 		
 <div>		
-<div>service</div>
-<h2 title="Class KinomaniakWS">
-<a id="class-kinomaniakws" class="anchor" href="#class-kinomaniakws" aria-hidden="true"><span class="octicon octicon-link"></span></a>Class KinomaniakWS</h2>
+<div class="subTitle">service</div>
+<h2 title="Class KinomaniakWS" class="title">Class KinomaniakWS</h2>
 </div>
-
-<div>
-<ul>
+<div class="contentContainer">
+<ul class="inheritance">
 <li>java.lang.Object</li>
 <li>
-<ul>
+<ul class="inheritance">
 <li>service.KinomaniakWS</li>
 </ul>
 </li>
 </ul>
-<div>
-<ul>
-<li>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
 <hr>
 <br>
-<pre>public class KinomaniakWS
+<pre>public class <span class="typeNameLabel">KinomaniakWS</span>
 extends java.lang.Object</pre>
-<div>Główna klasa usługi sieciowej</div>
+<div class="block">Główna klasa usługi sieciowej</div>
 </li>
 </ul>
 </div>
-
-<div>
-<ul>
-<li>
-
-<ul>
-<li>
-<a name="constructor.summary">
-
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor.summary">
+<!--   -->
 </a>
-<h3>
-<a id="constructor-summary" class="anchor" href="#constructor-summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Constructor Summary</h3>
-<table border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
-Constructors 
+<h3>Constructor Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
-<th scope="col">Constructor and Description</th>
+<th class="colOne" scope="col">Constructor and Description</th>
 </tr>
-<tr>
-<td>
-<code><a href="/KinomaniakWS2/#KinomaniakWS--">KinomaniakWS</a>()</code> </td>
+<tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="#KinomaniakWS--">KinomaniakWS</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
 </li>
 </ul>
-
-<ul>
-<li>
-<a name="method.summary">
-
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method.summary">
+<!--   -->
 </a>
-<h3>
-<a id="method-summary" class="anchor" href="#method-summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Method Summary</h3>
-<table border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-All Methods Instance Methods Concrete Methods 
+<h3>Method Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
-<th scope="col">Modifier and Type</th>
-<th scope="col">Method and Description</th>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
 </tr>
-<tr id="i0">
-<td><code>int</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#bookTicketForShow-int-int-int-">bookTicketForShow</a>(int showid,
-                 int userid,
-                 int seat)</code>
-<div>Metoda rezerwująca bilet na dany seans</div>
+<tr id="i0" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#adminAddActor-java.lang.String-java.lang.String-">adminAddActor</a></span>(java.lang.String&nbsp;firstName,
+             java.lang.String&nbsp;lastName)</code>
+<div class="block">Metoda administracyjna - dodanie aktora</div>
 </td>
 </tr>
-<tr id="i1">
-<td><code>int</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#bookTicketForShowObj-entity.Show-entity.User-int-">bookTicketForShowObj</a>(<a href="../entity/Show.html" title="class in entity">Show</a> show,
-                    <a href="../entity/User.html" title="class in entity">User</a> user,
-                    int seat)</code>
-<div>Rezerwacja miejsca na dany seans (wykorzystująca obiekty zamiast identyfikatorów)</div>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#adminAddCast-entity.Actor-entity.Movie-">adminAddCast</a></span>(<a href="../entity/Actor.html" title="class in entity">Actor</a>&nbsp;actor,
+            <a href="../entity/Movie.html" title="class in entity">Movie</a>&nbsp;movie)</code>
+<div class="block">Metoda administracyjna - dodanie aktora do obsady filmu</div>
 </td>
 </tr>
-<tr id="i2">
-<td><code>int</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#confirmReservation-int-">confirmReservation</a>(int resid)</code>
-<div>Metoda do potwierdzania rezerwacji</div>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#adminAddGenre-java.lang.String-">adminAddGenre</a></span>(java.lang.String&nbsp;genre)</code>
+<div class="block">Metoda administracyjna - dodanie rodzaju filmu</div>
 </td>
 </tr>
-<tr id="i3">
-<td><code>java.util.List</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#getActorList--">getActorList</a>()</code>
-<div>Zwraca listę wszystkich aktorów</div>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#adminAddMovie-java.lang.String-java.lang.String-java.lang.String-int-entity.Genre-">adminAddMovie</a></span>(java.lang.String&nbsp;name,
+             java.lang.String&nbsp;description,
+             java.lang.String&nbsp;director,
+             int&nbsp;rating,
+             <a href="../entity/Genre.html" title="class in entity">Genre</a>&nbsp;genre)</code>
+<div class="block">Metoda administracyjna - dodanie filmu</div>
 </td>
 </tr>
-<tr id="i4">
-<td><code>java.util.List</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#getCast-int-">getCast</a>(int movieid)</code>
-<div>Zwraca listę aktorów w danym filmie na podstawie id filmu</div>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#adminAddShow-entity.Movie-entity.Room-java.util.Date-">adminAddShow</a></span>(<a href="../entity/Movie.html" title="class in entity">Movie</a>&nbsp;movie,
+            <a href="../entity/Room.html" title="class in entity">Room</a>&nbsp;room,
+            java.util.Date&nbsp;time)</code>
+<div class="block">Metoda administracyjna - dodanie seansu</div>
 </td>
 </tr>
-<tr id="i5">
-<td><code><a href="../entity/Movie.html" title="class in entity">Movie</a></code></td>
-<td>
-<code><a href="/KinomaniakWS2/#getMovie-int-">getMovie</a>(int id)</code>
-<div>Zwraca film (obiekt Movie) na podstawie konkretnego identyfikatora</div>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#adminAddUser-java.lang.String-java.lang.String-java.lang.String-int-">adminAddUser</a></span>(java.lang.String&nbsp;username,
+            java.lang.String&nbsp;password,
+            java.lang.String&nbsp;email,
+            int&nbsp;elevation)</code>
+<div class="block">Metoda administracyjna - dodanie użytkownika</div>
 </td>
 </tr>
-<tr id="i6">
-<td><code>java.util.List</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#getMovieList--">getMovieList</a>()</code>
-<div>Zwraca listę wszystkich filmów w bazie</div>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#bookTicketForShow-int-int-int-">bookTicketForShow</a></span>(int&nbsp;showid,
+                 int&nbsp;userid,
+                 int&nbsp;seat)</code>
+<div class="block">Metoda rezerwująca bilet na dany seans</div>
 </td>
 </tr>
-<tr id="i7">
-<td><code>java.util.List</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#getMoviesByActor-int-">getMoviesByActor</a>(int actorid)</code>
-<div>Zwraca listę filmów na podstawie id aktora</div>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#bookTicketForShowObj-entity.Show-entity.User-int-">bookTicketForShowObj</a></span>(<a href="../entity/Show.html" title="class in entity">Show</a>&nbsp;show,
+                    <a href="../entity/User.html" title="class in entity">User</a>&nbsp;user,
+                    int&nbsp;seat)</code>
+<div class="block">Rezerwacja miejsca na dany seans (wykorzystująca obiekty zamiast identyfikatorów)</div>
 </td>
 </tr>
-<tr id="i8">
-<td><code>java.util.List</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#getMoviesByGenre-int-">getMoviesByGenre</a>(int genreid)</code>
-<div>Metoda zwraca listę filmów (obiekt Movie) na podstawie identyfikatora rodzaju filmu (Genre)</div>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#bookTicketForShowObjSeatList-entity.Show-entity.User-java.util.List-">bookTicketForShowObjSeatList</a></span>(<a href="../entity/Show.html" title="class in entity">Show</a>&nbsp;show,
+                            <a href="../entity/User.html" title="class in entity">User</a>&nbsp;user,
+                            java.util.List&lt;java.lang.Integer&gt;&nbsp;seat)</code>
+<div class="block">Rezerwacja miejsca na dany seans (wykorzystująca obiekty zamiast identyfikatorów)</div>
 </td>
 </tr>
-<tr id="i9">
-<td><code>java.util.List</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#getOccupiedSeatsForShow-int-">getOccupiedSeatsForShow</a>(int showid)</code>
-<div>Zwraca identyfikatory zajętych miejsc na danym seansie</div>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#bookTicketForShowSeatList-int-int-java.util.List-">bookTicketForShowSeatList</a></span>(int&nbsp;showid,
+                         int&nbsp;uid,
+                         java.util.List&lt;java.lang.Integer&gt;&nbsp;seatList)</code>
+<div class="block">Web service operation</div>
 </td>
 </tr>
-<tr id="i10">
-<td><code><a href="../entity/Reservation.html" title="class in entity">Reservation</a></code></td>
-<td>
-<code><a href="/KinomaniakWS2/#getReservationById-int-">getReservationById</a>(int resid)</code>
-<div>Zwraca konkretną rezerwację na podstawie jego id</div>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#confirmReservation-int-">confirmReservation</a></span>(int&nbsp;resid)</code>
+<div class="block">Metoda do potwierdzania rezerwacji</div>
 </td>
 </tr>
-<tr id="i11">
-<td><code>java.util.List</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#getReservationsByShow-int-">getReservationsByShow</a>(int showid)</code>
-<div>Zwraca listę rezerwacji na podany seans na podstawie id seansu</div>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>java.util.List</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#getActorList--">getActorList</a></span>()</code>
+<div class="block">Zwraca listę wszystkich aktorów</div>
 </td>
 </tr>
-<tr id="i12">
-<td><code>java.util.List</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#getReservationsByUser-int-">getReservationsByUser</a>(int userid)</code>
-<div>Pobranie rezerwacji danego użytkownika</div>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>java.util.List</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#getCast-int-">getCast</a></span>(int&nbsp;movieid)</code>
+<div class="block">Zwraca listę aktorów w danym filmie na podstawie id filmu</div>
 </td>
 </tr>
-<tr id="i13">
-<td><code><a href="../entity/Show.html" title="class in entity">Show</a></code></td>
-<td>
-<code><a href="/KinomaniakWS2/#getShow-int-">getShow</a>(int id)</code>
-<div>Zwraca konkretny seans podstawie podanego identyfikator</div>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code><a href="../entity/Movie.html" title="class in entity">Movie</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#getMovie-int-">getMovie</a></span>(int&nbsp;id)</code>
+<div class="block">Zwraca film (obiekt Movie) na podstawie konkretnego identyfikatora</div>
 </td>
 </tr>
-<tr id="i14">
-<td><code>java.util.List</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#getShowList--">getShowList</a>()</code>
-<div>Zwraca listę wszystkich seansów zapisanych w bazie</div>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>java.util.List</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#getMovieList--">getMovieList</a></span>()</code>
+<div class="block">Zwraca listę wszystkich filmów w bazie</div>
 </td>
 </tr>
-<tr id="i15">
-<td><code>java.util.List</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#listReservations--">listReservations</a>()</code>
-<div>Zwraca listę wszystkich rezerwacji</div>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code>java.util.List</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#getMoviesByActor-int-">getMoviesByActor</a></span>(int&nbsp;actorid)</code>
+<div class="block">Zwraca listę filmów na podstawie id aktora</div>
 </td>
 </tr>
-<tr id="i16">
-<td><code>java.util.List</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#movieSuggestionsByCast-int-">movieSuggestionsByCast</a>(int actorid)</code>
-<div>Zwraca listę sugerowanych filmów na podstawie id aktora</div>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>java.util.List</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#getMoviesByGenre-int-">getMoviesByGenre</a></span>(int&nbsp;genreid)</code>
+<div class="block">Metoda zwraca listę filmów (obiekt Movie) na podstawie identyfikatora rodzaju filmu (Genre)</div>
 </td>
 </tr>
-<tr id="i17">
-<td><code>java.util.List</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#movieSuggestionsByCastList-java.util.List-">movieSuggestionsByCastList</a>(java.util.List&lt;<a href="../entity/Actor.html" title="class in entity">Actor</a>&gt; cast)</code>
-<div>Zwraca listę sugerowanych filmów na podstawie listy aktorów</div>
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code>java.util.List</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#getOccupiedSeatsForShow-int-">getOccupiedSeatsForShow</a></span>(int&nbsp;showid)</code>
+<div class="block">Zwraca identyfikatory zajętych miejsc na danym seansie</div>
 </td>
 </tr>
-<tr id="i18">
-<td><code>java.util.List</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#movieSuggestionsByGenre-int-">movieSuggestionsByGenre</a>(int genreid)</code>
-<div>Zwraca listę sugerowanych filmów na podstawie id rodzaju filmu</div>
+<tr id="i18" class="altColor">
+<td class="colFirst"><code><a href="../entity/Reservation.html" title="class in entity">Reservation</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#getReservationById-int-">getReservationById</a></span>(int&nbsp;resid)</code>
+<div class="block">Zwraca konkretną rezerwację na podstawie jego id</div>
 </td>
 </tr>
-<tr id="i19">
-<td><code>java.util.List</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#movieSuggestionsByUser-int-">movieSuggestionsByUser</a>(int userid)</code>
-<div>Zwraca listę sugerowanych filmów na podstawie id użytkownika</div>
+<tr id="i19" class="rowColor">
+<td class="colFirst"><code>java.util.List</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#getReservationsByShow-int-">getReservationsByShow</a></span>(int&nbsp;showid)</code>
+<div class="block">Zwraca listę rezerwacji na podany seans na podstawie id seansu</div>
 </td>
 </tr>
-<tr id="i20">
-<td><code>int</code></td>
-<td>
-<code><a href="/KinomaniakWS2/#userLogin-java.lang.String-java.lang.String-">userLogin</a>(java.lang.String username,
-         java.lang.String password)</code>
-<div>sprawdzenie logowania użytkownika</div>
+<tr id="i20" class="altColor">
+<td class="colFirst"><code>java.util.List</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#getReservationsByUser-int-">getReservationsByUser</a></span>(int&nbsp;userid)</code>
+<div class="block">Pobranie rezerwacji danego użytkownika</div>
+</td>
+</tr>
+<tr id="i21" class="rowColor">
+<td class="colFirst"><code><a href="../entity/Show.html" title="class in entity">Show</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#getShow-int-">getShow</a></span>(int&nbsp;id)</code>
+<div class="block">Zwraca konkretny seans podstawie podanego identyfikator</div>
+</td>
+</tr>
+<tr id="i22" class="altColor">
+<td class="colFirst"><code>java.util.List</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#getShowList--">getShowList</a></span>()</code>
+<div class="block">Zwraca listę wszystkich seansów zapisanych w bazie</div>
+</td>
+</tr>
+<tr id="i23" class="rowColor">
+<td class="colFirst"><code>java.util.List</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#listReservations--">listReservations</a></span>()</code>
+<div class="block">Zwraca listę wszystkich rezerwacji</div>
+</td>
+</tr>
+<tr id="i24" class="altColor">
+<td class="colFirst"><code>java.util.List</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#movieSuggestionsByCast-int-">movieSuggestionsByCast</a></span>(int&nbsp;actorid)</code>
+<div class="block">Zwraca listę sugerowanych filmów na podstawie id aktora</div>
+</td>
+</tr>
+<tr id="i25" class="rowColor">
+<td class="colFirst"><code>java.util.List</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#movieSuggestionsByCastList-java.util.List-">movieSuggestionsByCastList</a></span>(java.util.List&lt;<a href="../entity/Actor.html" title="class in entity">Actor</a>&gt;&nbsp;cast)</code>
+<div class="block">Zwraca listę sugerowanych filmów na podstawie listy aktorów</div>
+</td>
+</tr>
+<tr id="i26" class="altColor">
+<td class="colFirst"><code>java.util.List</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#movieSuggestionsByGenre-int-">movieSuggestionsByGenre</a></span>(int&nbsp;genreid)</code>
+<div class="block">Zwraca listę sugerowanych filmów na podstawie id rodzaju filmu</div>
+</td>
+</tr>
+<tr id="i27" class="rowColor">
+<td class="colFirst"><code>java.util.List</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#movieSuggestionsByMovie-entity.Movie-">movieSuggestionsByMovie</a></span>(<a href="../entity/Movie.html" title="class in entity">Movie</a>&nbsp;movie)</code>
+<div class="block">Zwraca listę sugerowanych filmów na podstawie wybranego filmu</div>
+</td>
+</tr>
+<tr id="i28" class="altColor">
+<td class="colFirst"><code>java.util.List</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#movieSuggestionsByMovieId2-int-">movieSuggestionsByMovieId2</a></span>(int&nbsp;movieid)</code>
+<div class="block">Web service operation</div>
+</td>
+</tr>
+<tr id="i29" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#operation--">operation</a></span>()</code>
+<div class="block">Web service operation</div>
+</td>
+</tr>
+<tr id="i30" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#userLogin-java.lang.String-java.lang.String-">userLogin</a></span>(java.lang.String&nbsp;username,
+         java.lang.String&nbsp;password)</code>
+<div class="block">sprawdzenie logowania użytkownika</div>
+</td>
+</tr>
+<tr id="i31" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#userLoginHashed-java.lang.String-java.lang.String-">userLoginHashed</a></span>(java.lang.String&nbsp;username,
+               java.lang.String&nbsp;hashPass)</code>
+<div class="block">sprawdzenie logowania użytkownika wykorzystując zahashowane już hasło - bezpieczniejesze</div>
 </td>
 </tr>
 </table>
-<ul>
-<li>
-<a name="methods.inherited.from.class.java.lang.Object">
-
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
+<!--   -->
 </a>
-<h3>
-<a id="methods-inherited-from-classjavalangobject" class="anchor" href="#methods-inherited-from-classjavalangobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods inherited from class java.lang.Object</h3>
-<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code>
-</li>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </div>
-
-<div>
-<ul>
-<li>
-
-<ul>
-<li>
-<a name="constructor.detail">
-
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor.detail">
+<!--   -->
 </a>
-<h3>
-<a id="constructor-detail" class="anchor" href="#constructor-detail" aria-hidden="true"><span class="octicon octicon-link"></span></a>Constructor Detail</h3>
+<h3>Constructor Detail</h3>
 <a name="KinomaniakWS--">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="kinomaniakws" class="anchor" href="#kinomaniakws" aria-hidden="true"><span class="octicon octicon-link"></span></a>KinomaniakWS</h4>
-<pre>public KinomaniakWS()</pre>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>KinomaniakWS</h4>
+<pre>public&nbsp;KinomaniakWS()</pre>
 </li>
 </ul>
 </li>
 </ul>
-
-<ul>
-<li>
-<a name="method.detail">
-
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method.detail">
+<!--   -->
 </a>
-<h3>
-<a id="method-detail" class="anchor" href="#method-detail" aria-hidden="true"><span class="octicon octicon-link"></span></a>Method Detail</h3>
+<h3>Method Detail</h3>
 <a name="getMovieList--">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="getmovielist" class="anchor" href="#getmovielist" aria-hidden="true"><span class="octicon octicon-link"></span></a>getMovieList</h4>
-<pre>public java.util.List getMovieList()</pre>
-<div>Zwraca listę wszystkich filmów w bazie</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMovieList</h4>
+<pre>public&nbsp;java.util.List&nbsp;getMovieList()</pre>
+<div class="block">Zwraca listę wszystkich filmów w bazie</div>
 <dl>
-<dt>Returns:</dt>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>Lista filmów w bazie jako ArrayList of Movie</dd>
-<dt>See Also:</dt>
+<dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../entity/Movie.html" title="class in entity"><code>Movie</code></a></dd>
 </dl>
 </li>
 </ul>
 <a name="getMovie-int-">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="getmovie" class="anchor" href="#getmovie" aria-hidden="true"><span class="octicon octicon-link"></span></a>getMovie</h4>
-<pre>public <a href="../entity/Movie.html" title="class in entity">Movie</a> getMovie(int id)</pre>
-<div>Zwraca film (obiekt Movie) na podstawie konkretnego identyfikatora</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMovie</h4>
+<pre>public&nbsp;<a href="../entity/Movie.html" title="class in entity">Movie</a>&nbsp;getMovie(int&nbsp;id)</pre>
+<div class="block">Zwraca film (obiekt Movie) na podstawie konkretnego identyfikatora</div>
 <dl>
-<dt>Parameters:</dt>
-<dd>
-<code>id</code> - identyfikator filmu</dd>
-<dt>Returns:</dt>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>id</code> - identyfikator filmu</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>obiekt Movie (film)</dd>
-<dt>See Also:</dt>
+<dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../entity/Movie.html" title="class in entity"><code>Movie</code></a></dd>
 </dl>
 </li>
 </ul>
 <a name="getCast-int-">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="getcast" class="anchor" href="#getcast" aria-hidden="true"><span class="octicon octicon-link"></span></a>getCast</h4>
-<pre>public java.util.List getCast(int movieid)</pre>
-<div>Zwraca listę aktorów w danym filmie na podstawie id filmu</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCast</h4>
+<pre>public&nbsp;java.util.List&nbsp;getCast(int&nbsp;movieid)</pre>
+<div class="block">Zwraca listę aktorów w danym filmie na podstawie id filmu</div>
 <dl>
-<dt>Parameters:</dt>
-<dd>
-<code>movieid</code> - id filmu</dd>
-<dt>Returns:</dt>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>movieid</code> - id filmu</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>lista aktorów (obiektów Actor)</dd>
-<dt>See Also:</dt>
+<dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../entity/Actor.html" title="class in entity"><code>Actor</code></a></dd>
 </dl>
 </li>
 </ul>
 <a name="getMoviesByGenre-int-">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="getmoviesbygenre" class="anchor" href="#getmoviesbygenre" aria-hidden="true"><span class="octicon octicon-link"></span></a>getMoviesByGenre</h4>
-<pre>public java.util.List getMoviesByGenre(int genreid)</pre>
-<div>Metoda zwraca listę filmów (obiekt Movie) na podstawie identyfikatora rodzaju filmu (Genre)</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMoviesByGenre</h4>
+<pre>public&nbsp;java.util.List&nbsp;getMoviesByGenre(int&nbsp;genreid)</pre>
+<div class="block">Metoda zwraca listę filmów (obiekt Movie) na podstawie identyfikatora rodzaju filmu (Genre)</div>
 <dl>
-<dt>Parameters:</dt>
-<dd>
-<code>genreid</code> - id rodzaju</dd>
-<dt>Returns:</dt>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>genreid</code> - id rodzaju</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>lista filmów</dd>
-<dt>See Also:</dt>
-<dd>
-<a href="../entity/Genre.html" title="class in entity"><code>Genre</code></a>, 
-<a href="../entity/Movie.html" title="class in entity"><code>Movie</code></a>
-</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../entity/Genre.html" title="class in entity"><code>Genre</code></a>, 
+<a href="../entity/Movie.html" title="class in entity"><code>Movie</code></a></dd>
 </dl>
 </li>
 </ul>
 <a name="getMoviesByActor-int-">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="getmoviesbyactor" class="anchor" href="#getmoviesbyactor" aria-hidden="true"><span class="octicon octicon-link"></span></a>getMoviesByActor</h4>
-<pre>public java.util.List getMoviesByActor(int actorid)</pre>
-<div>Zwraca listę filmów na podstawie id aktora</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMoviesByActor</h4>
+<pre>public&nbsp;java.util.List&nbsp;getMoviesByActor(int&nbsp;actorid)</pre>
+<div class="block">Zwraca listę filmów na podstawie id aktora</div>
 <dl>
-<dt>Parameters:</dt>
-<dd>
-<code>actorid</code> - id aktora</dd>
-<dt>Returns:</dt>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>actorid</code> - id aktora</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>lista filmów</dd>
-<dt>See Also:</dt>
-<dd>
-<a href="../entity/Movie.html" title="class in entity"><code>Movie</code></a>, 
-<a href="../entity/Actor.html" title="class in entity"><code>Actor</code></a>
-</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../entity/Movie.html" title="class in entity"><code>Movie</code></a>, 
+<a href="../entity/Actor.html" title="class in entity"><code>Actor</code></a></dd>
 </dl>
 </li>
 </ul>
 <a name="getActorList--">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="getactorlist" class="anchor" href="#getactorlist" aria-hidden="true"><span class="octicon octicon-link"></span></a>getActorList</h4>
-<pre>public java.util.List getActorList()</pre>
-<div>Zwraca listę wszystkich aktorów</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>getActorList</h4>
+<pre>public&nbsp;java.util.List&nbsp;getActorList()</pre>
+<div class="block">Zwraca listę wszystkich aktorów</div>
 <dl>
-<dt>Returns:</dt>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>lista aktorów w bazie jako ArrayList</dd>
-<dt>See Also:</dt>
+<dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../entity/Actor.html" title="class in entity"><code>Actor</code></a></dd>
 </dl>
 </li>
 </ul>
 <a name="getShowList--">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="getshowlist" class="anchor" href="#getshowlist" aria-hidden="true"><span class="octicon octicon-link"></span></a>getShowList</h4>
-<pre>public java.util.List getShowList()</pre>
-<div>Zwraca listę wszystkich seansów zapisanych w bazie</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>getShowList</h4>
+<pre>public&nbsp;java.util.List&nbsp;getShowList()</pre>
+<div class="block">Zwraca listę wszystkich seansów zapisanych w bazie</div>
 <dl>
-<dt>Returns:</dt>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>lista seansów (jako ArrayList)</dd>
-<dt>See Also:</dt>
+<dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../entity/Show.html" title="class in entity"><code>Show</code></a></dd>
 </dl>
 </li>
 </ul>
 <a name="getShow-int-">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="getshow" class="anchor" href="#getshow" aria-hidden="true"><span class="octicon octicon-link"></span></a>getShow</h4>
-<pre>public <a href="../entity/Show.html" title="class in entity">Show</a> getShow(int id)</pre>
-<div>Zwraca konkretny seans podstawie podanego identyfikator</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>getShow</h4>
+<pre>public&nbsp;<a href="../entity/Show.html" title="class in entity">Show</a>&nbsp;getShow(int&nbsp;id)</pre>
+<div class="block">Zwraca konkretny seans podstawie podanego identyfikator</div>
 <dl>
-<dt>Parameters:</dt>
-<dd>
-<code>id</code> - id seansu</dd>
-<dt>Returns:</dt>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>id</code> - id seansu</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>obiekt Show konkretnego seansu</dd>
-<dt>See Also:</dt>
+<dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../entity/Show.html" title="class in entity"><code>Show</code></a></dd>
 </dl>
 </li>
 </ul>
 <a name="listReservations--">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="listreservations" class="anchor" href="#listreservations" aria-hidden="true"><span class="octicon octicon-link"></span></a>listReservations</h4>
-<pre>public java.util.List listReservations()</pre>
-<div>Zwraca listę wszystkich rezerwacji</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>listReservations</h4>
+<pre>public&nbsp;java.util.List&nbsp;listReservations()</pre>
+<div class="block">Zwraca listę wszystkich rezerwacji</div>
 <dl>
-<dt>Returns:</dt>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>lista rezerwacji (jako Arraylist)</dd>
-<dt>See Also:</dt>
+<dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../entity/Reservation.html" title="class in entity"><code>Reservation</code></a></dd>
 </dl>
 </li>
 </ul>
 <a name="getReservationById-int-">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="getreservationbyid" class="anchor" href="#getreservationbyid" aria-hidden="true"><span class="octicon octicon-link"></span></a>getReservationById</h4>
-<pre>public <a href="../entity/Reservation.html" title="class in entity">Reservation</a> getReservationById(int resid)</pre>
-<div>Zwraca konkretną rezerwację na podstawie jego id</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>getReservationById</h4>
+<pre>public&nbsp;<a href="../entity/Reservation.html" title="class in entity">Reservation</a>&nbsp;getReservationById(int&nbsp;resid)</pre>
+<div class="block">Zwraca konkretną rezerwację na podstawie jego id</div>
 <dl>
-<dt>Parameters:</dt>
-<dd>
-<code>resid</code> - id rezerwacji</dd>
-<dt>Returns:</dt>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>resid</code> - id rezerwacji</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>obiekt Reservation</dd>
-<dt>See Also:</dt>
+<dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../entity/Reservation.html" title="class in entity"><code>Reservation</code></a></dd>
 </dl>
 </li>
 </ul>
 <a name="getReservationsByShow-int-">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="getreservationsbyshow" class="anchor" href="#getreservationsbyshow" aria-hidden="true"><span class="octicon octicon-link"></span></a>getReservationsByShow</h4>
-<pre>public java.util.List getReservationsByShow(int showid)</pre>
-<div>Zwraca listę rezerwacji na podany seans na podstawie id seansu</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>getReservationsByShow</h4>
+<pre>public&nbsp;java.util.List&nbsp;getReservationsByShow(int&nbsp;showid)</pre>
+<div class="block">Zwraca listę rezerwacji na podany seans na podstawie id seansu</div>
 <dl>
-<dt>Parameters:</dt>
-<dd>
-<code>showid</code> - id seansu</dd>
-<dt>Returns:</dt>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>showid</code> - id seansu</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>lista rezerwacji jako ArrayList of Reservation</dd>
-<dt>See Also:</dt>
-<dd>
-<a href="../entity/Reservation.html" title="class in entity"><code>Reservation</code></a>, 
-<a href="../entity/Show.html" title="class in entity"><code>Show</code></a>
-</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../entity/Reservation.html" title="class in entity"><code>Reservation</code></a>, 
+<a href="../entity/Show.html" title="class in entity"><code>Show</code></a></dd>
 </dl>
 </li>
 </ul>
 <a name="bookTicketForShow-int-int-int-">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="bookticketforshow" class="anchor" href="#bookticketforshow" aria-hidden="true"><span class="octicon octicon-link"></span></a>bookTicketForShow</h4>
-<pre>public int bookTicketForShow(int showid,
-                             int userid,
-                             int seat)</pre>
-<div>Metoda rezerwująca bilet na dany seans</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>bookTicketForShow</h4>
+<pre>public&nbsp;int&nbsp;bookTicketForShow(int&nbsp;showid,
+                             int&nbsp;userid,
+                             int&nbsp;seat)</pre>
+<div class="block">Metoda rezerwująca bilet na dany seans</div>
 <dl>
-<dt>Parameters:</dt>
-<dd>
-<code>showid</code> - id seansu</dd>
-<dd>
-<code>seat</code> - id miejsca w sali</dd>
-<dd>
-<code>userid</code> - id użytkownika rezerwującego</dd>
-<dt>Returns:</dt>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>showid</code> - id seansu</dd>
+<dd><code>seat</code> - id miejsca w sali</dd>
+<dd><code>userid</code> - id użytkownika rezerwującego</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>0 jeśli jest OK</dd>
-<dt>See Also:</dt>
-<dd>
-<a href="../entity/Show.html" title="class in entity"><code>Show</code></a>, 
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../entity/Show.html" title="class in entity"><code>Show</code></a>, 
 <a href="../entity/Room.html" title="class in entity"><code>Room</code></a>, 
-<a href="../entity/User.html" title="class in entity"><code>User</code></a>
-</dd>
+<a href="../entity/User.html" title="class in entity"><code>User</code></a></dd>
 </dl>
 </li>
 </ul>
 <a name="getReservationsByUser-int-">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="getreservationsbyuser" class="anchor" href="#getreservationsbyuser" aria-hidden="true"><span class="octicon octicon-link"></span></a>getReservationsByUser</h4>
-<pre>public java.util.List getReservationsByUser(int userid)</pre>
-<div>Pobranie rezerwacji danego użytkownika</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>getReservationsByUser</h4>
+<pre>public&nbsp;java.util.List&nbsp;getReservationsByUser(int&nbsp;userid)</pre>
+<div class="block">Pobranie rezerwacji danego użytkownika</div>
 <dl>
-<dt>Parameters:</dt>
-<dd>
-<code>userid</code> - id użytkownika</dd>
-<dt>Returns:</dt>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>userid</code> - id użytkownika</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>lista rezerwacji jako ArrayList of Reservation</dd>
-<dt>See Also:</dt>
-<dd>
-<a href="../entity/User.html" title="class in entity"><code>User</code></a>, 
-<a href="../entity/Reservation.html" title="class in entity"><code>Reservation</code></a>
-</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../entity/User.html" title="class in entity"><code>User</code></a>, 
+<a href="../entity/Reservation.html" title="class in entity"><code>Reservation</code></a></dd>
 </dl>
 </li>
 </ul>
 <a name="getOccupiedSeatsForShow-int-">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="getoccupiedseatsforshow" class="anchor" href="#getoccupiedseatsforshow" aria-hidden="true"><span class="octicon octicon-link"></span></a>getOccupiedSeatsForShow</h4>
-<pre>public java.util.List getOccupiedSeatsForShow(int showid)</pre>
-<div>Zwraca identyfikatory zajętych miejsc na danym seansie</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOccupiedSeatsForShow</h4>
+<pre>public&nbsp;java.util.List&nbsp;getOccupiedSeatsForShow(int&nbsp;showid)</pre>
+<div class="block">Zwraca identyfikatory zajętych miejsc na danym seansie</div>
 <dl>
-<dt>Parameters:</dt>
-<dd>
-<code>showid</code> - id seansu</dd>
-<dt>Returns:</dt>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>showid</code> - id seansu</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>lista zajętych miejsc jako ArrayList of Integer</dd>
-<dt>See Also:</dt>
+<dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../entity/Show.html" title="class in entity"><code>Show</code></a></dd>
 </dl>
 </li>
 </ul>
 <a name="bookTicketForShowObj-entity.Show-entity.User-int-">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="bookticketforshowobj" class="anchor" href="#bookticketforshowobj" aria-hidden="true"><span class="octicon octicon-link"></span></a>bookTicketForShowObj</h4>
-<pre>public int bookTicketForShowObj(<a href="../entity/Show.html" title="class in entity">Show</a> show,
-                                <a href="../entity/User.html" title="class in entity">User</a> user,
-                                int seat)</pre>
-<div>Rezerwacja miejsca na dany seans (wykorzystująca obiekty zamiast identyfikatorów)</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>bookTicketForShowObj</h4>
+<pre>public&nbsp;int&nbsp;bookTicketForShowObj(<a href="../entity/Show.html" title="class in entity">Show</a>&nbsp;show,
+                                <a href="../entity/User.html" title="class in entity">User</a>&nbsp;user,
+                                int&nbsp;seat)</pre>
+<div class="block">Rezerwacja miejsca na dany seans (wykorzystująca obiekty zamiast identyfikatorów)</div>
 <dl>
-<dt>Parameters:</dt>
-<dd>
-<code>show</code> - obiekt typu Show seansu, na który chcemy rezerwować miejsce</dd>
-<dd>
-<code>user</code> - obiekt typu User użytkownika, który rezerwuje miejsce</dd>
-<dd>
-<code>seat</code> - id miejsca, które rezerwuje użytkownik</dd>
-<dt>Returns:</dt>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>show</code> - obiekt typu Show seansu, na który chcemy rezerwować miejsce</dd>
+<dd><code>user</code> - obiekt typu User użytkownika, który rezerwuje miejsce</dd>
+<dd><code>seat</code> - id miejsca, które rezerwuje użytkownik</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>0 jeśli OK</dd>
-<dt>See Also:</dt>
-<dd>
-<a href="../entity/Show.html" title="class in entity"><code>Show</code></a>, 
-<a href="../entity/User.html" title="class in entity"><code>User</code></a>
-</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../entity/Show.html" title="class in entity"><code>Show</code></a>, 
+<a href="../entity/User.html" title="class in entity"><code>User</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="bookTicketForShowObjSeatList-entity.Show-entity.User-java.util.List-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>bookTicketForShowObjSeatList</h4>
+<pre>public&nbsp;int&nbsp;bookTicketForShowObjSeatList(<a href="../entity/Show.html" title="class in entity">Show</a>&nbsp;show,
+                                        <a href="../entity/User.html" title="class in entity">User</a>&nbsp;user,
+                                        java.util.List&lt;java.lang.Integer&gt;&nbsp;seat)</pre>
+<div class="block">Rezerwacja miejsca na dany seans (wykorzystująca obiekty zamiast identyfikatorów)</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>show</code> - obiekt typu Show seansu, na który chcemy rezerwować miejsce</dd>
+<dd><code>user</code> - obiekt typu User użytkownika, który rezerwuje miejsce</dd>
+<dd><code>seat</code> - List of Integer z miejscami zarezerwowanymi</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 jeśli OK</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../entity/Show.html" title="class in entity"><code>Show</code></a>, 
+<a href="../entity/User.html" title="class in entity"><code>User</code></a></dd>
 </dl>
 </li>
 </ul>
 <a name="userLogin-java.lang.String-java.lang.String-">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="userlogin" class="anchor" href="#userlogin" aria-hidden="true"><span class="octicon octicon-link"></span></a>userLogin</h4>
-<pre>public int userLogin(java.lang.String username,
-                     java.lang.String password)</pre>
-<div>sprawdzenie logowania użytkownika</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>userLogin</h4>
+<pre>public&nbsp;int&nbsp;userLogin(java.lang.String&nbsp;username,
+                     java.lang.String&nbsp;password)</pre>
+<div class="block">sprawdzenie logowania użytkownika</div>
 <dl>
-<dt>Parameters:</dt>
-<dd>
-<code>username</code> - nazwa użytkownika</dd>
-<dd>
-<code>password</code> - hasło (w formie czystej)</dd>
-<dt>Returns:</dt>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>username</code> - nazwa użytkownika</dd>
+<dd><code>password</code> - hasło (w formie czystej)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>id użytkownika jeśli para użytkownik/hasło jest poprawna, -1 jeśli nie ma takiego użytkownika lub błędne hasło</dd>
-<dt>See Also:</dt>
+<dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../entity/User.html" title="class in entity"><code>User</code></a></dd>
 </dl>
 </li>
 </ul>
-<a name="confirmReservation-int-">
-
+<a name="userLoginHashed-java.lang.String-java.lang.String-">
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="confirmreservation" class="anchor" href="#confirmreservation" aria-hidden="true"><span class="octicon octicon-link"></span></a>confirmReservation</h4>
-<pre>public int confirmReservation(int resid)</pre>
-<div>Metoda do potwierdzania rezerwacji</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>userLoginHashed</h4>
+<pre>public&nbsp;int&nbsp;userLoginHashed(java.lang.String&nbsp;username,
+                           java.lang.String&nbsp;hashPass)</pre>
+<div class="block">sprawdzenie logowania użytkownika wykorzystując zahashowane już hasło - bezpieczniejesze</div>
 <dl>
-<dt>Parameters:</dt>
-<dd>
-<code>resid</code> - id rezerwacji</dd>
-<dt>Returns:</dt>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>username</code> - </dd>
+<dd><code>hashPass</code> - </dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+</dl>
+</li>
+</ul>
+<a name="confirmReservation-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>confirmReservation</h4>
+<pre>public&nbsp;int&nbsp;confirmReservation(int&nbsp;resid)</pre>
+<div class="block">Metoda do potwierdzania rezerwacji</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>resid</code> - id rezerwacji</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>0 jeśli ok</dd>
-<dt>See Also:</dt>
+<dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../entity/Reservation.html" title="class in entity"><code>Reservation</code></a></dd>
 </dl>
 </li>
 </ul>
 <a name="movieSuggestionsByGenre-int-">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="moviesuggestionsbygenre" class="anchor" href="#moviesuggestionsbygenre" aria-hidden="true"><span class="octicon octicon-link"></span></a>movieSuggestionsByGenre</h4>
-<pre>public java.util.List movieSuggestionsByGenre(int genreid)</pre>
-<div>Zwraca listę sugerowanych filmów na podstawie id rodzaju filmu</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>movieSuggestionsByGenre</h4>
+<pre>public&nbsp;java.util.List&nbsp;movieSuggestionsByGenre(int&nbsp;genreid)</pre>
+<div class="block">Zwraca listę sugerowanych filmów na podstawie id rodzaju filmu</div>
 <dl>
-<dt>Parameters:</dt>
-<dd>
-<code>genreid</code> - id rodzaju filmu</dd>
-<dt>Returns:</dt>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>genreid</code> - id rodzaju filmu</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>lista filmów jako ArrayList of Movie</dd>
-<dt>See Also:</dt>
-<dd>
-<a href="../entity/Movie.html" title="class in entity"><code>Movie</code></a>, 
-<a href="../entity/Genre.html" title="class in entity"><code>Genre</code></a>
-</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../entity/Movie.html" title="class in entity"><code>Movie</code></a>, 
+<a href="../entity/Genre.html" title="class in entity"><code>Genre</code></a></dd>
 </dl>
 </li>
 </ul>
 <a name="movieSuggestionsByCast-int-">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="moviesuggestionsbycast" class="anchor" href="#moviesuggestionsbycast" aria-hidden="true"><span class="octicon octicon-link"></span></a>movieSuggestionsByCast</h4>
-<pre>public java.util.List movieSuggestionsByCast(int actorid)</pre>
-<div>Zwraca listę sugerowanych filmów na podstawie id aktora</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>movieSuggestionsByCast</h4>
+<pre>public&nbsp;java.util.List&nbsp;movieSuggestionsByCast(int&nbsp;actorid)</pre>
+<div class="block">Zwraca listę sugerowanych filmów na podstawie id aktora</div>
 <dl>
-<dt>Parameters:</dt>
-<dd>
-<code>actorid</code> - id aktora</dd>
-<dt>Returns:</dt>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>actorid</code> - id aktora</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>lista filmów jako ArrayList of Movie</dd>
-<dt>See Also:</dt>
-<dd>
-<a href="../entity/Movie.html" title="class in entity"><code>Movie</code></a>, 
-<a href="../entity/Actor.html" title="class in entity"><code>Actor</code></a>
-</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../entity/Movie.html" title="class in entity"><code>Movie</code></a>, 
+<a href="../entity/Actor.html" title="class in entity"><code>Actor</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="movieSuggestionsByMovie-entity.Movie-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>movieSuggestionsByMovie</h4>
+<pre>public&nbsp;java.util.List&nbsp;movieSuggestionsByMovie(<a href="../entity/Movie.html" title="class in entity">Movie</a>&nbsp;movie)</pre>
+<div class="block">Zwraca listę sugerowanych filmów na podstawie wybranego filmu</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>movie</code> - film wybrany przez użytkownika</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>lista filmów jako ArrayList of Movie</dd>
 </dl>
 </li>
 </ul>
 <a name="movieSuggestionsByCastList-java.util.List-">
-
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="moviesuggestionsbycastlist" class="anchor" href="#moviesuggestionsbycastlist" aria-hidden="true"><span class="octicon octicon-link"></span></a>movieSuggestionsByCastList</h4>
-<pre>public java.util.List movieSuggestionsByCastList(java.util.List&lt;<a href="../entity/Actor.html" title="class in entity">Actor</a>&gt; cast)</pre>
-<div>Zwraca listę sugerowanych filmów na podstawie listy aktorów</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>movieSuggestionsByCastList</h4>
+<pre>public&nbsp;java.util.List&nbsp;movieSuggestionsByCastList(java.util.List&lt;<a href="../entity/Actor.html" title="class in entity">Actor</a>&gt;&nbsp;cast)</pre>
+<div class="block">Zwraca listę sugerowanych filmów na podstawie listy aktorów</div>
 <dl>
-<dt>Parameters:</dt>
-<dd>
-<code>cast</code> - lista aktorów (List of Actor)</dd>
-<dt>Returns:</dt>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>cast</code> - lista aktorów (List of Actor)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
 <dd>lista filmów jako ArrayList of Movie</dd>
-<dt>See Also:</dt>
-<dd>
-<a href="../entity/Movie.html" title="class in entity"><code>Movie</code></a>, 
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../entity/Movie.html" title="class in entity"><code>Movie</code></a>, 
 <a href="../entity/Actor.html" title="class in entity"><code>Actor</code></a>, 
-<a href="../entity/Cast.html" title="class in entity"><code>Cast</code></a>
-</dd>
+<a href="../entity/Cast.html" title="class in entity"><code>Cast</code></a></dd>
 </dl>
 </li>
 </ul>
-<a name="movieSuggestionsByUser-int-">
-
+<a name="adminAddUser-java.lang.String-java.lang.String-java.lang.String-int-">
+<!--   -->
 </a>
-<ul>
-<li>
-<h4>
-<a id="moviesuggestionsbyuser" class="anchor" href="#moviesuggestionsbyuser" aria-hidden="true"><span class="octicon octicon-link"></span></a>movieSuggestionsByUser</h4>
-<pre>public java.util.List movieSuggestionsByUser(int userid)</pre>
-<div>Zwraca listę sugerowanych filmów na podstawie id użytkownika</div>
+<ul class="blockList">
+<li class="blockList">
+<h4>adminAddUser</h4>
+<pre>public&nbsp;int&nbsp;adminAddUser(java.lang.String&nbsp;username,
+                        java.lang.String&nbsp;password,
+                        java.lang.String&nbsp;email,
+                        int&nbsp;elevation)</pre>
+<div class="block">Metoda administracyjna - dodanie użytkownika</div>
 <dl>
-<dt>Parameters:</dt>
-<dd>
-<code>userid</code> - id użytkownika</dd>
-<dt>Returns:</dt>
-<dd>lista filmów jako Arraylist of Movie</dd>
-<dt>See Also:</dt>
-<dd>
-<a href="../entity/Movie.html" title="class in entity"><code>Movie</code></a>, 
-<a href="../entity/User.html" title="class in entity"><code>User</code></a>
-</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>username</code> - nazwa użytkownika</dd>
+<dd><code>password</code> - hasło użytkownika(czyste)</dd>
+<dd><code>email</code> - adres email użytkownika</dd>
+<dd><code>elevation</code> - uprawnienia użytkownika</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 jeśli się powiedzie -1 jeśli nie</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../entity/User.html" title="class in entity"><code>User</code></a></dd>
 </dl>
+</li>
+</ul>
+<a name="adminAddShow-entity.Movie-entity.Room-java.util.Date-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>adminAddShow</h4>
+<pre>public&nbsp;int&nbsp;adminAddShow(<a href="../entity/Movie.html" title="class in entity">Movie</a>&nbsp;movie,
+                        <a href="../entity/Room.html" title="class in entity">Room</a>&nbsp;room,
+                        java.util.Date&nbsp;time)</pre>
+<div class="block">Metoda administracyjna - dodanie seansu</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>movie</code> - film na danym seansie</dd>
+<dd><code>room</code> - sala kinowa</dd>
+<dd><code>time</code> - czas seasnu</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 jeśli się powiedzie, -1 jeśli nie</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../entity/Movie.html" title="class in entity"><code>Movie</code></a>, 
+<a href="../entity/Room.html" title="class in entity"><code>Room</code></a>, 
+<code>Date</code>, 
+<a href="../entity/Show.html" title="class in entity"><code>Show</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="adminAddMovie-java.lang.String-java.lang.String-java.lang.String-int-entity.Genre-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>adminAddMovie</h4>
+<pre>public&nbsp;int&nbsp;adminAddMovie(java.lang.String&nbsp;name,
+                         java.lang.String&nbsp;description,
+                         java.lang.String&nbsp;director,
+                         int&nbsp;rating,
+                         <a href="../entity/Genre.html" title="class in entity">Genre</a>&nbsp;genre)</pre>
+<div class="block">Metoda administracyjna - dodanie filmu</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - tytuł filmu</dd>
+<dd><code>description</code> - opis filmu</dd>
+<dd><code>director</code> - reżyser</dd>
+<dd><code>rating</code> - ograniczenia wiekowe</dd>
+<dd><code>genre</code> - rodzaj filmu</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 jeśli się powiedzie, -1 jeśli nie</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../entity/Movie.html" title="class in entity"><code>Movie</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="adminAddActor-java.lang.String-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>adminAddActor</h4>
+<pre>public&nbsp;int&nbsp;adminAddActor(java.lang.String&nbsp;firstName,
+                         java.lang.String&nbsp;lastName)</pre>
+<div class="block">Metoda administracyjna - dodanie aktora</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>firstName</code> - imię aktora</dd>
+<dd><code>lastName</code> - nazwisko aktora</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 jeśli się powiedzie, -1 jeśli nie</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../entity/Actor.html" title="class in entity"><code>Actor</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="adminAddGenre-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>adminAddGenre</h4>
+<pre>public&nbsp;int&nbsp;adminAddGenre(java.lang.String&nbsp;genre)</pre>
+<div class="block">Metoda administracyjna - dodanie rodzaju filmu</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>genre</code> - rodzaj filmu</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 jeśli się powiedzie, -1 jeśli nie</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../entity/Genre.html" title="class in entity"><code>Genre</code></a>, 
+<a href="../entity/Movie.html" title="class in entity"><code>Movie</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="adminAddCast-entity.Actor-entity.Movie-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>adminAddCast</h4>
+<pre>public&nbsp;int&nbsp;adminAddCast(<a href="../entity/Actor.html" title="class in entity">Actor</a>&nbsp;actor,
+                        <a href="../entity/Movie.html" title="class in entity">Movie</a>&nbsp;movie)</pre>
+<div class="block">Metoda administracyjna - dodanie aktora do obsady filmu</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>actor</code> - aktor do dodania</dd>
+<dd><code>movie</code> - film do zaktualizowania obsady</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0 jeśli się powiedzie, -1 jeśli nie</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../entity/Cast.html" title="class in entity"><code>Cast</code></a>, 
+<a href="../entity/Movie.html" title="class in entity"><code>Movie</code></a>, 
+<a href="../entity/Actor.html" title="class in entity"><code>Actor</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="movieSuggestionsByMovieId2-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>movieSuggestionsByMovieId2</h4>
+<pre>public&nbsp;java.util.List&nbsp;movieSuggestionsByMovieId2(int&nbsp;movieid)</pre>
+<div class="block">Web service operation</div>
+</li>
+</ul>
+<a name="operation--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>operation</h4>
+<pre>public&nbsp;int&nbsp;operation()</pre>
+<div class="block">Web service operation</div>
+</li>
+</ul>
+<a name="bookTicketForShowSeatList-int-int-java.util.List-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>bookTicketForShowSeatList</h4>
+<pre>public&nbsp;int&nbsp;bookTicketForShowSeatList(int&nbsp;showid,
+                                     int&nbsp;uid,
+                                     java.util.List&lt;java.lang.Integer&gt;&nbsp;seatList)</pre>
+<div class="block">Web service operation</div>
 </li>
 </ul>
 </li>
@@ -778,6 +964,8 @@ All Methods Instance Methods Concrete Methods 
 </li>
 </ul>
 </div>
+</div>
+
 
 <p></p>
 </div>
