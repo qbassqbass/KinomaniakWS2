@@ -403,7 +403,7 @@ public class KinomaniakWS {
      * Rezerwacja miejsca na dany seans (wykorzystująca obiekty zamiast identyfikatorów)
      * @param show obiekt typu Show seansu, na który chcemy rezerwować miejsce
      * @param user obiekt typu User użytkownika, który rezerwuje miejsce
-     * @param seat id miejsca, które rezerwuje użytkownik
+     * @param seat List of Integer z miejscami zarezerwowanymi
      * @return 0 jeśli OK
      * @see Show
      * @see User
@@ -598,19 +598,7 @@ public class KinomaniakWS {
         //TODO write your implementation code here:
         return null;
     }
-
-    /**
-     * Zwraca listę sugerowanych filmów na podstawie id użytkownika
-     * @param userid id użytkownika
-     * @return lista filmów jako Arraylist of Movie
-     * @see Movie
-     * @see User
-     */
-    /*@WebMethod(operationName = "movieSuggestionsByUser")
-    public List movieSuggestionsByUser(@WebParam(name = "userid") int userid) {
-        //TODO write your implementation code here:
-        return null;
-    }*/
+    
 // <editor-fold defaultstate="collapsed" desc="Admin methods">
     /**
      * Metoda administracyjna - dodanie użytkownika
