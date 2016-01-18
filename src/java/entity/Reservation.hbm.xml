@@ -6,7 +6,6 @@
     <class name="entity.Reservation" table="reservation" catalog="kinomaniakws" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="identity" />
         </id>
         <many-to-one name="show" class="entity.Show" fetch="select">
             <column name="Show_id" not-null="true" />

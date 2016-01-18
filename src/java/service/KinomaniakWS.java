@@ -365,6 +365,23 @@ public class KinomaniakWS {
             }
         return seats;
     }
+    
+    private int getLastReservationId(){
+        int id = 0;
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();            
+            Query q = session.createQuery("Select r.id From Reservation r Order by r.id DESC").setMaxResults(1);
+            
+            List resultList = q.list();
+            if(!resultList.isEmpty())
+                return (int)resultList.get(0);
+            session.getTransaction().commit();
+        } catch (HibernateException he) {
+            he.printStackTrace();
+        }
+        return id;
+    }
 
     /**
      * Rezerwacja miejsca na dany seans (wykorzystująca obiekty zamiast identyfikatorów)
@@ -379,6 +396,28 @@ public class KinomaniakWS {
     public int bookTicketForShowObj(@WebParam(name = "show") Show show, @WebParam(name = "user") User user, @WebParam(name = "seat") int seat) {
 //        return bookTicketForShow(show.getId(), user.getId(), seat);
         return trySaveToDB(new Reservation(show, user, false, false, seat));
+//        return 0;
+    }
+    
+    /**
+     * Rezerwacja miejsca na dany seans (wykorzystująca obiekty zamiast identyfikatorów)
+     * @param show obiekt typu Show seansu, na który chcemy rezerwować miejsce
+     * @param user obiekt typu User użytkownika, który rezerwuje miejsce
+     * @param seat id miejsca, które rezerwuje użytkownik
+     * @return 0 jeśli OK
+     * @see Show
+     * @see User
+     */
+    @WebMethod(operationName = "bookTicketForShowObjSeatList")
+    public int bookTicketForShowObjSeatList(@WebParam(name = "show") Show show, @WebParam(name = "user") User user, @WebParam(name = "seat") List<Integer> seat) {
+//        return bookTicketForShow(show.getId(), user.getId(), seat);
+        int lastId = getLastReservationId();
+        for(int i: seat){
+            Reservation res = new Reservation(show, user, false, false, i);
+            res.setId(lastId + 1);
+            trySaveToDB(res);
+        }
+        return 0;
 //        return 0;
     }
 
@@ -425,9 +464,26 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "confirmReservation")
     public int confirmReservation(@WebParam(name = "resid") int resid) {
-        Reservation res = (Reservation) getFromDB(Reservation.class, resid);
-        res.setChecked(true);
-        return trySaveUpdateToDB(res);
+//        Reservation res = (Reservation) getFromDB(Reservation.class, resid);
+//        res.setChecked(true);
+        int result = -1;
+//        return trySaveUpdateToDB(res);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try{
+            session.beginTransaction(); 
+            Query query = session.createQuery("update Reservation set checked = 1" +
+    				" where id = :id");
+            query.setParameter("id", resid);
+            result = query.executeUpdate();
+            session.getTransaction().commit();
+        }catch(HibernateException he){
+            he.printStackTrace();
+            session.getTransaction().rollback();
+            session.close();
+            return -1;
+        }
+        session.close();
+        return result;
 //        return 0;
     }
 
@@ -677,7 +733,6 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "movieSuggestionsByMovieId2")
     public List movieSuggestionsByMovieId2(@WebParam(name = "movieid") int movieid) {
-        List movies = new ArrayList<Movie>();
         List result = executeHQLQuery("From Movie m Where m.id = '" + movieid + "'");
         Movie movie = null;
         if(result!=null){
@@ -685,6 +740,7 @@ public class KinomaniakWS {
                 movie = (Movie)result.get(0);
             }
         }
+        List movies = new ArrayList<Movie>();
         if(movie == null) return movies;
         movies.add(movieSuggestionsByGenre(movie.getGenre().getId()));
         List cast = getCast(movie.getId());
@@ -697,7 +753,39 @@ public class KinomaniakWS {
 //        movies.clear();
 //        movies.add(movieSet);
         List<Movie> deduped = (List<Movie>) movies.stream().distinct().collect(java.util.stream.Collectors.toList());
-        return deduped;
+        return movies;//deduped;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "operation")
+    public int operation() {
+        //TODO write your implementation code here:
+        List<Integer> list = new ArrayList<>();
+        list.add(3);
+        list.add(5);
+        list.add(6);
+        bookTicketForShowSeatList(1, 1, list);
+        return getLastReservationId();
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "bookTicketForShowSeatList")
+    public int bookTicketForShowSeatList(@WebParam(name = "showid") int showid, @WebParam(name = "uid") int uid, @WebParam(name = "seatList") List<Integer> seatList) {
+        int lastId = getLastReservationId();
+        for(int i: seatList){
+            Show s = new Show();
+            s.setId(showid);
+            User u = new User();
+            u.setId(uid);
+            Reservation res = new Reservation(s, u, false, false, i);
+            res.setId(lastId + 1);
+            trySaveToDB(res);
+        }
+        return 0;
     }
 
     
