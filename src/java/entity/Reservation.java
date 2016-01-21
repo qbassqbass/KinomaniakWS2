@@ -1,5 +1,5 @@
 package entity;
-// Generated 2015-10-30 14:40:09 by Hibernate Tools 4.3.1
+// Generated 2016-01-21 21:53:42 by Hibernate Tools 4.3.1
 
 
 
@@ -9,29 +9,28 @@ package entity;
 public class Reservation  implements java.io.Serializable {
 
 
-     private Integer id;
+     private ReservationId id;
      private Show show;
      private User user;
      private boolean checked;
      private boolean ok;
-     private int seat;
 
     public Reservation() {
     }
 
-    public Reservation(Show show, User user, boolean checked, boolean ok, int seat) {
+    public Reservation(ReservationId id, Show show, User user, boolean checked, boolean ok) {
+       this.id = id;
        this.show = show;
        this.user = user;
        this.checked = checked;
        this.ok = ok;
-       this.seat = seat;
     }
    
-    public Integer getId() {
+    public ReservationId getId() {
         return this.id;
     }
     
-    public void setId(Integer id) {
+    public void setId(ReservationId id) {
         this.id = id;
     }
     public Show getShow() {
@@ -62,18 +61,7 @@ public class Reservation  implements java.io.Serializable {
     public void setOk(boolean ok) {
         this.ok = ok;
     }
-    public int getSeat() {
-        return this.seat;
-    }
-    
-    public void setSeat(int seat) {
-        this.seat = seat;
-    }
 
-    @Override
-    public String toString(){
-        return this.getId()+". Show: "+this.getShow().toString()+"\nSeat: "+this.getSeat()+" by user "+this.getUser().getName()+"("+this.getUser().getEmail()+")";
-    }
 
 
 

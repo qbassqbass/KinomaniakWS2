@@ -322,7 +322,8 @@ public class KinomaniakWS {
         sh.setId(showid);
         User usr = new User();
         usr.setId(userid);
-        Reservation res = new Reservation(sh, usr, false, false, seat);
+        ReservationId resid = new ReservationId(getLastReservationId()+1, seat);
+        Reservation res = new Reservation(resid, sh, usr, false, false);
         return trySaveToDB(res);
 //        return 0;
     }
@@ -371,7 +372,7 @@ public class KinomaniakWS {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();            
-            Query q = session.createQuery("Select r.id From Reservation r Order by r.id DESC").setMaxResults(1);
+            Query q = session.createQuery("Select r.id.id From Reservation r Order by r.id.id DESC").setMaxResults(1);
             
             List resultList = q.list();
             if(!resultList.isEmpty())
@@ -395,7 +396,8 @@ public class KinomaniakWS {
     @WebMethod(operationName = "bookTicketForShowObj")
     public int bookTicketForShowObj(@WebParam(name = "show") Show show, @WebParam(name = "user") User user, @WebParam(name = "seat") int seat) {
 //        return bookTicketForShow(show.getId(), user.getId(), seat);
-        return trySaveToDB(new Reservation(show, user, false, false, seat));
+        ReservationId resid = new ReservationId(getLastReservationId()+1, seat);
+        return trySaveToDB(new Reservation(resid, show, user, false, false));
 //        return 0;
     }
     
@@ -410,11 +412,11 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "bookTicketForShowObjSeatList")
     public int bookTicketForShowObjSeatList(@WebParam(name = "show") Show show, @WebParam(name = "user") User user, @WebParam(name = "seat") List<Integer> seat) {
-//        return bookTicketForShow(show.getId(), user.getId(), seat);
-        int lastId = getLastReservationId();
+//        return bookTicketForShow(show.getId(), user.getId(), seat);        
+        int lastResId = getLastReservationId() + 1;
         for(int i: seat){
-            Reservation res = new Reservation(show, user, false, false, i);
-            res.setId(lastId + 1);
+            ReservationId resid = new ReservationId(lastResId, i);
+            Reservation res = new Reservation(resid, show, user, false, false);
             trySaveToDB(res);
         }
         return 0;
@@ -769,8 +771,8 @@ public class KinomaniakWS {
             s.setId(showid);
             User u = new User();
             u.setId(uid);
-            Reservation res = new Reservation(s, u, false, false, i);
-            res.setId(lastId + 1);
+            ReservationId resid = new ReservationId(lastId+1, i);
+            Reservation res = new Reservation(resid, s, u, false, false);
             trySaveToDB(res);
         }
         return 0;

@@ -1,12 +1,17 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-10-30 14:40:09 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2016-01-21 21:53:44 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="entity.Reservation" table="reservation" catalog="kinomaniakws" optimistic-lock="version">
-        <id name="id" type="java.lang.Integer">
-            <column name="id" />
-        </id>
+        <composite-id name="id" class="entity.ReservationId">
+            <key-property name="id" type="int">
+                <column name="id" />
+            </key-property>
+            <key-property name="seat" type="int">
+                <column name="seat" />
+            </key-property>
+        </composite-id>
         <many-to-one name="show" class="entity.Show" fetch="select">
             <column name="Show_id" not-null="true" />
         </many-to-one>
@@ -18,9 +23,6 @@
         </property>
         <property name="ok" type="boolean">
             <column name="ok" not-null="true" />
-        </property>
-        <property name="seat" type="int">
-            <column name="seat" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>
