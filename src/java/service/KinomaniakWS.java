@@ -761,7 +761,11 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * 
+     * @param showid
+     * @param uid
+     * @param seatList
+     * @return 
      */
     @WebMethod(operationName = "bookTicketForShowSeatList")
     public int bookTicketForShowSeatList(@WebParam(name = "showid") int showid, @WebParam(name = "uid") int uid, @WebParam(name = "seatList") List<Integer> seatList) {
@@ -779,52 +783,108 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Metoda zwraca listę użytkowników zarejestrowanych w systemie 
+     * @return lista użytkowników jako ArrayList of User
      */
     @WebMethod(operationName = "getUserList")
     public List getUserList() {
-        //TODO write your implementation code here:
-        return null;
+        List result = executeHQLQuery("From User");
+        if(!result.isEmpty()){
+            List users = new ArrayList<User>();
+            for(Object o : result){
+                User u = (User)o;
+                u.setPassword("*******");
+                users.add(u);
+            }
+            return users;
+        }
+        return new ArrayList<User>();
     }
 
     /**
-     * Web service operation
+     * Metoda zwraca listę rodzajów filmów
+     * @return lista rodzajów jako ArrayList of Genre
      */
     @WebMethod(operationName = "getGenreList")
     public List getGenreList() {
-        //TODO write your implementation code here:
-        return null;
+        List result = executeHQLQuery("From Genre");
+        if(!result.isEmpty()){
+            List genres = new ArrayList<Genre>();
+            for(Object o : result){
+                genres.add((Genre)o);
+            }
+            return genres;
+        }
+        return new ArrayList<Genre>();
     }
 
     /**
-     * Web service operation
+     * Metoda pozwalająca na edycję aktora
+     * @param id id aktora do edycji
+     * @param firstName nowe imię
+     * @param lastName nowe nazwisko
+     * @return 
      */
     @WebMethod(operationName = "adminEditActor")
     public int adminEditActor(@WebParam(name = "id") int id, @WebParam(name = "firstName") String firstName, @WebParam(name = "lastName") String lastName) {
-        //TODO write your implementation code here:
-        return 0;
+        List result = executeHQLQuery("From Actor a Where a.id = "+id);
+        if(!result.isEmpty()){
+            Actor act = (Actor)result.get(0);
+            act.setFirstName(firstName);
+            act.setLastName(lastName);
+            return trySaveUpdateToDB(act);
+        }
+        return -1;
     }
 
     /**
-     * Web service operation
+     * Metoda pozwalająca na edycję gatunku filmu
+     * @param id id gatunku do edycji
+     * @param genre nowa nazwa gatunku
+     * @return 0 jeśli OK
      */
     @WebMethod(operationName = "adminEditGenre")
     public int adminEditGenre(@WebParam(name = "id") int id, @WebParam(name = "genre") String genre) {
-        //TODO write your implementation code here:
-        return 0;
+        List result = executeHQLQuery("From Genre a Where a.id = "+id);
+        if(!result.isEmpty()){
+            Genre gen = (Genre)result.get(0);
+            gen.setGenre(genre);
+            return trySaveUpdateToDB(gen);
+        }
+        return -1;
     }
 
     /**
-     * Web service operation
+     * Metoda pozwalająca na edycję filmu
+     * @param id id filmu do edycji
+     * @param genre_id nowe id gatunku
+     * @param name nowy tytuł
+     * @param description nowy opis
+     * @param rating nowy rating
+     * @param director nowy reżyser
+     * @return 0 jeśli OK
      */
     @WebMethod(operationName = "adminEditMovie")
     public int adminEditMovie(@WebParam(name = "id") int id, @WebParam(name = "genre_id") int genre_id, @WebParam(name = "name") String name, @WebParam(name = "description") String description, @WebParam(name = "rating") int rating, @WebParam(name = "director") String director) {
-        //TODO write your implementation code here:
-        return 0;
+        List result = executeHQLQuery("From Movie a Where a.id = "+id);
+        if(!result.isEmpty()){
+            Movie mov = (Movie)result.get(0);
+            Genre gen = new Genre();
+            gen.setId(genre_id);
+            mov.setGenre(gen);
+            mov.setName(name);
+            mov.setDescription(description);
+            mov.setDirector(director);
+            mov.setRating(rating);
+            return trySaveUpdateToDB(mov);
+        }
+        return -1;
     }
 
     /**
-     * Web service operation
+     * Metoda pozwalająca na dodanie sali kinowej
+     * @param id id sali kinowej
+     * @return 0 jeśli OK
      */
     @WebMethod(operationName = "adminAddRoom")
     public int adminAddRoom(@WebParam(name = "id") int id) {
@@ -833,25 +893,57 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Metoda pozwalająca na edycję seansu
+     * @param id id seansu do edycji
+     * @param movie_id id nowego filmu
+     * @param room_id id nowej sali 
+     * @param time nowy czas
+     * @return 
      */
     @WebMethod(operationName = "adminEditShow")
     public int adminEditShow(@WebParam(name = "id") int id, @WebParam(name = "movie_id") int movie_id, @WebParam(name = "room_id") int room_id, @WebParam(name = "time") Date time) {
-        //TODO write your implementation code here:
-        return 0;
+        List result = executeHQLQuery("From Show a Where a.id = "+id);
+        if(!result.isEmpty()){
+            Show sh = (Show)result.get(0);            
+            Movie mov = new Movie();
+            mov.setId(movie_id);
+            Room rom = new Room();
+            rom.setId(room_id);
+            sh.setMovie(mov);
+            sh.setRoom(rom);
+            sh.setTime(time);
+            return trySaveUpdateToDB(sh);
+        }
+        return -1;
     }
 
     /**
-     * Web service operation
+     * Metoda pozwalająca na edycję użytkownika
+     * @param id id użytkownika do edycji
+     * @param name nowa nazwa
+     * @param password nowe hasło (zahashowane)
+     * @param type nowy typ
+     * @param email nowy email
+     * @return 
      */
     @WebMethod(operationName = "adminEditUser")
     public int adminEditUser(@WebParam(name = "id") int id, @WebParam(name = "name") String name, @WebParam(name = "password") String password, @WebParam(name = "type") int type, @WebParam(name = "email") String email) {
-        //TODO write your implementation code here:
-        return 0;
+        List result = executeHQLQuery("From User a Where a.id = "+id);
+        if(!result.isEmpty()){
+            User usr = (User)result.get(0);
+            usr.setEmail(email);
+            usr.setName(name);
+            usr.setPassword(password);
+            usr.setType(type);
+            return trySaveUpdateToDB(usr);
+        }
+        return -1;
     }
 
     /**
-     * Web service operation
+     * 
+     * @param id
+     * @return 
      */
     @WebMethod(operationName = "adminDeleteActor")
     public int adminDeleteActor(@WebParam(name = "id") int id) {
@@ -860,7 +952,9 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * 
+     * @param id
+     * @return 
      */
     @WebMethod(operationName = "adminDeleteGenre")
     public int adminDeleteGenre(@WebParam(name = "id") int id) {
@@ -869,7 +963,9 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * 
+     * @param id
+     * @return 
      */
     @WebMethod(operationName = "adminDeleteMovie")
     public int adminDeleteMovie(@WebParam(name = "id") int id) {
@@ -878,7 +974,9 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * 
+     * @param id
+     * @return 
      */
     @WebMethod(operationName = "adminDeleteRoom")
     public int adminDeleteRoom(@WebParam(name = "id") int id) {
@@ -887,7 +985,9 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * 
+     * @param id
+     * @return 
      */
     @WebMethod(operationName = "adminDeleteShow")
     public int adminDeleteShow(@WebParam(name = "id") int id) {
@@ -896,7 +996,9 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * 
+     * @param id
+     * @return 
      */
     @WebMethod(operationName = "adminDeleteUser")
     public int adminDeleteUser(@WebParam(name = "id") int id) {
