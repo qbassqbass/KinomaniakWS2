@@ -473,8 +473,8 @@ public class KinomaniakWS {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try{
             session.beginTransaction(); 
-            Query query = session.createQuery("update Reservation set checked = 1" +
-    				" where id = :id");
+            Query query = session.createQuery("update Reservation r set checked = 1" +
+    				" where r.id.id = :id");
             query.setParameter("id", resid);
             result = query.executeUpdate();
             session.getTransaction().commit();
@@ -775,6 +775,132 @@ public class KinomaniakWS {
             Reservation res = new Reservation(resid, s, u, false, false);
             trySaveToDB(res);
         }
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getUserList")
+    public List getUserList() {
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getGenreList")
+    public List getGenreList() {
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminEditActor")
+    public int adminEditActor(@WebParam(name = "id") int id, @WebParam(name = "firstName") String firstName, @WebParam(name = "lastName") String lastName) {
+        //TODO write your implementation code here:
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminEditGenre")
+    public int adminEditGenre(@WebParam(name = "id") int id, @WebParam(name = "genre") String genre) {
+        //TODO write your implementation code here:
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminEditMovie")
+    public int adminEditMovie(@WebParam(name = "id") int id, @WebParam(name = "genre_id") int genre_id, @WebParam(name = "name") String name, @WebParam(name = "description") String description, @WebParam(name = "rating") int rating, @WebParam(name = "director") String director) {
+        //TODO write your implementation code here:
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminAddRoom")
+    public int adminAddRoom(@WebParam(name = "id") int id) {
+        //TODO write your implementation code here:
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminEditShow")
+    public int adminEditShow(@WebParam(name = "id") int id, @WebParam(name = "movie_id") int movie_id, @WebParam(name = "room_id") int room_id, @WebParam(name = "time") Date time) {
+        //TODO write your implementation code here:
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminEditUser")
+    public int adminEditUser(@WebParam(name = "id") int id, @WebParam(name = "name") String name, @WebParam(name = "password") String password, @WebParam(name = "type") int type, @WebParam(name = "email") String email) {
+        //TODO write your implementation code here:
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminDeleteActor")
+    public int adminDeleteActor(@WebParam(name = "id") int id) {
+        //TODO write your implementation code here:
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminDeleteGenre")
+    public int adminDeleteGenre(@WebParam(name = "id") int id) {
+        //TODO write your implementation code here:
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminDeleteMovie")
+    public int adminDeleteMovie(@WebParam(name = "id") int id) {
+        //TODO write your implementation code here:
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminDeleteRoom")
+    public int adminDeleteRoom(@WebParam(name = "id") int id) {
+        //TODO write your implementation code here:
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminDeleteShow")
+    public int adminDeleteShow(@WebParam(name = "id") int id) {
+        //TODO write your implementation code here:
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "adminDeleteUser")
+    public int adminDeleteUser(@WebParam(name = "id") int id) {
+        //TODO write your implementation code here:
         return 0;
     }
 
