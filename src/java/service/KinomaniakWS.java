@@ -783,6 +783,7 @@ public class KinomaniakWS {
      * @param uid
      * @param seatList
      * @return 
+     * @see Reservation
      */
     @WebMethod(operationName = "bookTicketForShowSeatList")
     public int bookTicketForShowSeatList(@WebParam(name = "showid") int showid, @WebParam(name = "uid") int uid, @WebParam(name = "seatList") List<Integer> seatList) {
@@ -802,6 +803,7 @@ public class KinomaniakWS {
     /**
      * Metoda zwraca listę użytkowników zarejestrowanych w systemie 
      * @return lista użytkowników jako ArrayList of User
+     * @see User
      */
     @WebMethod(operationName = "getUserList")
     public List getUserList() {
@@ -821,6 +823,7 @@ public class KinomaniakWS {
     /**
      * Metoda zwraca listę rodzajów filmów
      * @return lista rodzajów jako ArrayList of Genre
+     * @see Genre
      */
     @WebMethod(operationName = "getGenreList")
     public List getGenreList() {
@@ -841,6 +844,7 @@ public class KinomaniakWS {
      * @param firstName nowe imię
      * @param lastName nowe nazwisko
      * @return 
+     * @see Actor
      */
     @WebMethod(operationName = "adminEditActor")
     public int adminEditActor(@WebParam(name = "id") int id, @WebParam(name = "firstName") String firstName, @WebParam(name = "lastName") String lastName) {
@@ -859,6 +863,7 @@ public class KinomaniakWS {
      * @param id id gatunku do edycji
      * @param genre nowa nazwa gatunku
      * @return 0 jeśli OK
+     * @see Genre
      */
     @WebMethod(operationName = "adminEditGenre")
     public int adminEditGenre(@WebParam(name = "id") int id, @WebParam(name = "genre") String genre) {
@@ -880,6 +885,7 @@ public class KinomaniakWS {
      * @param rating nowy rating
      * @param director nowy reżyser
      * @return 0 jeśli OK
+     * @see Movie
      */
     @WebMethod(operationName = "adminEditMovie")
     public int adminEditMovie(@WebParam(name = "id") int id, @WebParam(name = "genre_id") int genre_id, @WebParam(name = "name") String name, @WebParam(name = "description") String description, @WebParam(name = "rating") int rating, @WebParam(name = "director") String director) {
@@ -902,6 +908,7 @@ public class KinomaniakWS {
      * Metoda pozwalająca na dodanie sali kinowej
      * @param id id sali kinowej
      * @return 0 jeśli OK
+     * @see Room
      */
     @WebMethod(operationName = "adminAddRoom")
     public int adminAddRoom(@WebParam(name = "id") int id) {
@@ -916,6 +923,7 @@ public class KinomaniakWS {
      * @param room_id id nowej sali 
      * @param time nowy czas
      * @return 
+     * @see Show
      */
     @WebMethod(operationName = "adminEditShow")
     public int adminEditShow(@WebParam(name = "id") int id, @WebParam(name = "movie_id") int movie_id, @WebParam(name = "room_id") int room_id, @WebParam(name = "time") Date time) {
@@ -942,6 +950,7 @@ public class KinomaniakWS {
      * @param type nowy typ
      * @param email nowy email
      * @return 
+     * @see User
      */
     @WebMethod(operationName = "adminEditUser")
     public int adminEditUser(@WebParam(name = "id") int id, @WebParam(name = "name") String name, @WebParam(name = "password") String password, @WebParam(name = "type") int type, @WebParam(name = "email") String email) {
@@ -958,9 +967,10 @@ public class KinomaniakWS {
     }
 
     /**
-     * 
-     * @param id
-     * @return 
+     * Metoda pozwalająca na usunięcie aktora
+     * @param id id aktora do usunięcia
+     * @return 0 jeśli ok, -2 jeśli naruszenie integralności FK, -1 jeśli inny błąd
+     * @see Actor
      */
     @WebMethod(operationName = "adminDeleteActor")
     public int adminDeleteActor(@WebParam(name = "id") int id) {
@@ -968,9 +978,10 @@ public class KinomaniakWS {
     }
 
     /**
-     * 
-     * @param id
-     * @return 
+     * Metoda pozwalająca na usunięcie rodzaju filmu
+     * @param id id rodzaju filmu do usunięcia
+     * @return 0 jeśli ok, -2 jeśli naruszenie integralności FK, -1 jeśli inny błąd
+     * @see Genre
      */
     @WebMethod(operationName = "adminDeleteGenre")
     public int adminDeleteGenre(@WebParam(name = "id") int id) {
@@ -978,9 +989,10 @@ public class KinomaniakWS {
     }
 
     /**
-     * 
-     * @param id
-     * @return 
+     * Metoda pozwalająca na usunięcie filmu
+     * @param id id filmu do usunięcia
+     * @return 0 jeśli ok, -2 jeśli naruszenie integralności FK, -1 jeśli inny błąd
+     * @see Movie
      */
     @WebMethod(operationName = "adminDeleteMovie")
     public int adminDeleteMovie(@WebParam(name = "id") int id) {
@@ -988,9 +1000,10 @@ public class KinomaniakWS {
     }
 
     /**
-     * 
-     * @param id
-     * @return 
+     * Metoda pozwalająca na usunięcie sali kinowej
+     * @param id id sali kinowej do usunięcia
+     * @return 0 jeśli ok, -2 jeśli naruszenie integralności FK, -1 jeśli inny błąd
+     * @see Room
      */
     @WebMethod(operationName = "adminDeleteRoom")
     public int adminDeleteRoom(@WebParam(name = "id") int id) {
@@ -998,9 +1011,10 @@ public class KinomaniakWS {
     }
 
     /**
-     * 
-     * @param id
-     * @return 
+     * Metoda pozwalająca na usunięcie seansu
+     * @param id id seansu do usunięcia
+     * @return 0 jeśli ok, -2 jeśli naruszenie integralności FK, -1 jeśli inny błąd
+     * @see Show
      */
     @WebMethod(operationName = "adminDeleteShow")
     public int adminDeleteShow(@WebParam(name = "id") int id) {
@@ -1008,9 +1022,10 @@ public class KinomaniakWS {
     }
 
     /**
-     * 
-     * @param id
-     * @return 
+     * Metoda pozwalająca na usunięcie użytkownika
+     * @param id id użytkownika do usunięcia
+     * @return 0 jeśli ok, -2 jeśli naruszenie integralności FK, -1 jeśli inny błąd
+     * @see User
      */
     @WebMethod(operationName = "adminDeleteUser")
     public int adminDeleteUser(@WebParam(name = "id") int id) {
