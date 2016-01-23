@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.exception.ConstraintViolationException;
 import utils.HashUtil;
 
 /**
@@ -76,6 +77,22 @@ public class KinomaniakWS {
         session.close();
         return 0;
     }   
+    
+    private int executeDeleteQuery(String hql){
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();            
+            Query q = session.createQuery(hql);
+            q.executeUpdate();
+            session.getTransaction().commit();
+        } catch (ConstraintViolationException cve){
+            return -2;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            return -1;
+        }
+        return 0;
+    }
     
     
     private Object getFromDB(Class cl, Serializable ser){
@@ -947,8 +964,7 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "adminDeleteActor")
     public int adminDeleteActor(@WebParam(name = "id") int id) {
-        //TODO write your implementation code here:
-        return 0;
+        return executeDeleteQuery("Delete Actor where id = " + id);
     }
 
     /**
@@ -958,8 +974,7 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "adminDeleteGenre")
     public int adminDeleteGenre(@WebParam(name = "id") int id) {
-        //TODO write your implementation code here:
-        return 0;
+        return executeDeleteQuery("Delete Genre where id = " + id);
     }
 
     /**
@@ -969,8 +984,7 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "adminDeleteMovie")
     public int adminDeleteMovie(@WebParam(name = "id") int id) {
-        //TODO write your implementation code here:
-        return 0;
+        return executeDeleteQuery("Delete Movie where id = " + id);
     }
 
     /**
@@ -980,8 +994,7 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "adminDeleteRoom")
     public int adminDeleteRoom(@WebParam(name = "id") int id) {
-        //TODO write your implementation code here:
-        return 0;
+        return executeDeleteQuery("Delete Room where id = " + id);
     }
 
     /**
@@ -991,8 +1004,7 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "adminDeleteShow")
     public int adminDeleteShow(@WebParam(name = "id") int id) {
-        //TODO write your implementation code here:
-        return 0;
+        return executeDeleteQuery("Delete Show where id = " + id);
     }
 
     /**
@@ -1002,8 +1014,7 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "adminDeleteUser")
     public int adminDeleteUser(@WebParam(name = "id") int id) {
-        //TODO write your implementation code here:
-        return 0;
+        return executeDeleteQuery("Delete User where id = " + id);
     }
 
     
