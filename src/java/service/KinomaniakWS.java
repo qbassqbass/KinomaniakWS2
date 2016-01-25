@@ -1032,6 +1032,23 @@ public class KinomaniakWS {
         return executeDeleteQuery("Delete User where id = " + id);
     }
 
+    /**
+     * Metoda pozwalająca na pobranie listy dostępnych sal kinowych
+     * @return lista sal kinowych jako ArrayList of Room
+     */
+    @WebMethod(operationName = "getRoomList")
+    public List getRoomList() {
+        List result = executeHQLQuery("From Room");
+        if(!result.isEmpty()){
+            List rooms = new ArrayList<Room>();
+            for(Object o : result){
+                rooms.add((Room)o);
+            }
+            return rooms;
+        }
+        return new ArrayList<Room>();
+    }
+
     
     
 }
