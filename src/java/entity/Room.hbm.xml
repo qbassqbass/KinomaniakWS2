@@ -6,7 +6,6 @@
     <class name="entity.Room" table="room" catalog="kinomaniakws" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="identity" />
         </id>
         <!--<set name="shows" table="show" inverse="true" lazy="true" fetch="select">
             <key>

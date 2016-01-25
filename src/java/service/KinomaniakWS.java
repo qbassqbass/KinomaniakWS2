@@ -912,8 +912,9 @@ public class KinomaniakWS {
      */
     @WebMethod(operationName = "adminAddRoom")
     public int adminAddRoom(@WebParam(name = "id") int id) {
-        //TODO write your implementation code here:
-        return 0;
+        Room rom = new Room();
+        rom.setId(id);
+        return trySaveToDB(rom);
     }
 
     /**
