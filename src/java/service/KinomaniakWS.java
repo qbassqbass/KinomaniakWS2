@@ -1051,7 +1051,10 @@ public class KinomaniakWS {
     }
 
     /**
-     * Web service operation
+     * Pobiera z bazy użytkownika o zadanym id
+     * @param id id użytkownika
+     * @return obiekt użytkownika typu User
+     * @see User
      */
     @WebMethod(operationName = "getUser")
     public User getUser(@WebParam(name = "id") int id) {
