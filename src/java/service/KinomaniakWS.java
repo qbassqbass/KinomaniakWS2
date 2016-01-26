@@ -1050,6 +1050,25 @@ public class KinomaniakWS {
         return new ArrayList<Room>();
     }
 
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getUser")
+    public User getUser(@WebParam(name = "id") int id) {
+        List result = executeHQLQuery("From User u Where u.id = " + id);
+        if(!result.isEmpty()){
+            User u = (User)result.get(0);
+//            Show s = (Show)result.get(0);
+//            List shows = new ArrayList<Show>();
+//            for(Object o: result){
+//                shows.add((Show)o);
+//            }
+//            return shows.get(0);
+            return u;
+        }
+        return null;
+    }
+
     
     
 }
