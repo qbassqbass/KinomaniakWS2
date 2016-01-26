@@ -367,61 +367,67 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i37" class="rowColor">
+<td class="colFirst"><code><a href="../entity/User.html" title="class in entity">User</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="#getUser-int-">getUser</a></span>(int&nbsp;id)</code>
+<div class="block">Pobiera z bazy użytkownika o zadanym id</div>
+</td>
+</tr>
+<tr id="i38" class="altColor">
 <td class="colFirst"><code>java.util.List</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="#getUserList--">getUserList</a></span>()</code>
 <div class="block">Metoda zwraca listę użytkowników zarejestrowanych w systemie</div>
 </td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code>java.util.List</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="#listReservations--">listReservations</a></span>()</code>
 <div class="block">Zwraca listę wszystkich rezerwacji</div>
 </td>
 </tr>
-<tr id="i39" class="rowColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code>java.util.List</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="#movieSuggestionsByCast-int-">movieSuggestionsByCast</a></span>(int&nbsp;actorid)</code>
 <div class="block">Zwraca listę sugerowanych filmów na podstawie id aktora</div>
 </td>
 </tr>
-<tr id="i40" class="altColor">
+<tr id="i41" class="rowColor">
 <td class="colFirst"><code>java.util.List</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="#movieSuggestionsByCastList-java.util.List-">movieSuggestionsByCastList</a></span>(java.util.List&lt;<a href="../entity/Actor.html" title="class in entity">Actor</a>&gt;&nbsp;cast)</code>
 <div class="block">Zwraca listę sugerowanych filmów na podstawie listy aktorów</div>
 </td>
 </tr>
-<tr id="i41" class="rowColor">
+<tr id="i42" class="altColor">
 <td class="colFirst"><code>java.util.List</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="#movieSuggestionsByGenre-int-">movieSuggestionsByGenre</a></span>(int&nbsp;genreid)</code>
 <div class="block">Zwraca listę sugerowanych filmów na podstawie id rodzaju filmu</div>
 </td>
 </tr>
-<tr id="i42" class="altColor">
+<tr id="i43" class="rowColor">
 <td class="colFirst"><code>java.util.List</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="#movieSuggestionsByMovie-entity.Movie-">movieSuggestionsByMovie</a></span>(<a href="../entity/Movie.html" title="class in entity">Movie</a>&nbsp;movie)</code>
 <div class="block">Zwraca listę sugerowanych filmów na podstawie wybranego filmu</div>
 </td>
 </tr>
-<tr id="i43" class="rowColor">
+<tr id="i44" class="altColor">
 <td class="colFirst"><code>java.util.List</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="#movieSuggestionsByMovieId2-int-">movieSuggestionsByMovieId2</a></span>(int&nbsp;movieid)</code>
 <div class="block">Web service operation</div>
 </td>
 </tr>
-<tr id="i44" class="altColor">
+<tr id="i45" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="#operation--">operation</a></span>()</code>
 <div class="block">Web service operation</div>
 </td>
 </tr>
-<tr id="i45" class="rowColor">
+<tr id="i46" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="#userLogin-java.lang.String-java.lang.String-">userLogin</a></span>(java.lang.String&nbsp;username,
          java.lang.String&nbsp;password)</code>
 <div class="block">sprawdzenie logowania użytkownika</div>
 </td>
 </tr>
-<tr id="i46" class="altColor">
+<tr id="i47" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="#userLoginHashed-java.lang.String-java.lang.String-">userLoginHashed</a></span>(java.lang.String&nbsp;username,
                java.lang.String&nbsp;hashPass)</code>
@@ -1350,7 +1356,7 @@ extends java.lang.Object</pre>
 <a name="getRoomList--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getRoomList</h4>
 <pre>public&nbsp;java.util.List&nbsp;getRoomList()</pre>
@@ -1358,6 +1364,24 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>lista sal kinowych jako ArrayList of Room</dd>
+</dl>
+</li>
+</ul>
+<a name="getUser-int-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getUser</h4>
+<pre>public&nbsp;<a href="../entity/User.html" title="class in entity">User</a>&nbsp;getUser(int&nbsp;id)</pre>
+<div class="block">Pobiera z bazy użytkownika o zadanym id</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>id</code> - id użytkownika</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>obiekt użytkownika typu User</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../entity/User.html" title="class in entity"><code>User</code></a></dd>
 </dl>
 </li>
 </ul>
