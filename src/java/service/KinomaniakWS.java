@@ -1032,6 +1032,11 @@ public class KinomaniakWS {
     public int adminDeleteUser(@WebParam(name = "id") int id) {
         return executeDeleteQuery("Delete User where id = " + id);
     }
+    
+    @WebMethod(operationName = "adminDeleteReservation")
+    public int adminDeleteReservation(@WebParam(name = "id") int id) {
+        return executeDeleteQuery("Delete Reservation where id.id = " + id);
+    }
 
     /**
      * Metoda pozwalająca na pobranie listy dostępnych sal kinowych
