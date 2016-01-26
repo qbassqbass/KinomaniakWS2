@@ -1032,7 +1032,11 @@ public class KinomaniakWS {
     public int adminDeleteUser(@WebParam(name = "id") int id) {
         return executeDeleteQuery("Delete User where id = " + id);
     }
-    
+    /**
+     * Metoda pozwalająca na usunięcie rezerwacji (wszystkie miejsca z danym ID)
+     * @param id id rezerwacji do usunięcia
+     * @return 0 jeśli ok, -2 jeśli naruszenie integralności FK, -1 jeśli inny błąd
+     */
     @WebMethod(operationName = "adminDeleteReservation")
     public int adminDeleteReservation(@WebParam(name = "id") int id) {
         return executeDeleteQuery("Delete Reservation where id.id = " + id);
