@@ -759,7 +759,7 @@ public class KinomaniakWS {
 //        movieSet.addAll(movies);
 //        movies.clear();
 //        movies.add(movieSet);
-        List<Movie> deduped = (List<Movie>) movies.stream().distinct().collect(java.util.stream.Collectors.toList());
+//        List<Movie> deduped = (List<Movie>) movies.stream().distinct().collect(java.util.stream.Collectors.toList());
         return movies;//deduped;
     }
 
